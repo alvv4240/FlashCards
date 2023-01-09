@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: cicd-flashcards
+    app.kubernetes.io/instance: cicd-flashcards-instance
+    app.kubernetes.io/version: '1.0.0'
+    app.kubernetes.io/managed-by: kubectl
+  name: cicd-flashcards-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cicd-flashcards
+  template:
+    metadata:
+      labels:
+        app: cicd-flashcards
+    spec:
+      containers:
+        - image: 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest
+          imagePullPolicy: Always
+          name: cicd-flashcards
+          ports:
+            - containerPort: 3000
