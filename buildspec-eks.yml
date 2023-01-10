@@ -48,6 +48,8 @@ phases:
       - echo Build Phase Building the Docker image...          
       - docker build --cache-from $REPOSITORY_URI:latest -t flashcards:latest .
       - docker tag flashcards:latest 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest 
+      - echo tagging image
+      - echo build succeeded
 
   post_build:
     commands:
