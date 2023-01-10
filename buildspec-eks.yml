@@ -19,7 +19,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon EKS...
-      - aws eks --region us-west-2 update-kubeconfig --name cicd-flashcards
+      - aws eks --region us-west-2 update-kubeconfig --name eks-cluster
       - echo check config 
       - kubectl config view --minify
       - echo check kubectl access
