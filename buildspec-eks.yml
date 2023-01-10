@@ -22,8 +22,6 @@ phases:
       - aws eks --region us-west-2 update-kubeconfig --name eks-cluster
       - echo check config 
       - kubectl config view --minify
-      - echo check kubectl access
-      - kubectl get service
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 948731545609.dkr.ecr.us-west-2.amazonaws.com
       - REPOSITORY_URI=948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards
