@@ -18,7 +18,7 @@ spec:
         app: flashcards
     spec:
       containers:
-        - image: 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards
+        - image: 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest
           imagePullPolicy: Always
           name: flashcards
           ports:
