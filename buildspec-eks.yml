@@ -43,5 +43,6 @@ phases:
       - docker push 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest
       - echo Push the latest image to cluster
       - pwd
+      - ls -la
       - kubectl apply -f eks_cicd/deployment.yaml
       - kubectl rollout restart -f eks_cicd/deployment.yaml
