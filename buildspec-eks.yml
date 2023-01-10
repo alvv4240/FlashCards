@@ -19,21 +19,25 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 948731545609.dkr.ecr.us-west-2.amazonaws.com
+      - echo Prebuild:Building the Docker image...
+      - docker build -t flashcards .
+      - echo taging Docker image...
+      - docker tag flashcards:latest 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest
+      - echo Pushing the Docker images...
+      - docker push 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest
+      - echo image pushed to ECR.
+     
+     
      
       - echo Logging in to Amazon EKS...
       - aws eks --region us-west-2 update-kubeconfig --name eks-cluster
       - echo check config 
       - kubectl config view --minify
-      - echo Logging in to Amazon ECR...
-      - aws --version
-      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 948731545609.dkr.ecr.us-west-2.amazonaws.com
-      
-      - echo Building the Docker image...
-      - docker build -t flashcards .
-      - docker tag flashcards:latest 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest
-      - echo Pushing the Docker images...
-      - docker push 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest
-      
+     
+      - echo Pulling the latest docker image from ECTR
       - REPOSITORY_URI=948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards
       - docker pull $REPOSITORY_URI:latest
       
@@ -41,7 +45,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - echo Building the Docker image...          
+      - echo Build Phase Building the Docker image...          
       - docker build --cache-from $REPOSITORY_URI:latest -t flashcards:latest .
       - docker tag flashcards:latest 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest 
 
