@@ -6,20 +6,20 @@ metadata:
     app.kubernetes.io/instance: cicd-flashcards-instance
     app.kubernetes.io/version: '1.0.0'
     app.kubernetes.io/managed-by: kubectl
-  name: cicd-flashcards-deployment
+  name: flashcards-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: cicd-flashcards
+      app: flashcards
   template:
     metadata:
       labels:
-        app: cicd-flashcards
+        app: flashcards
     spec:
       containers:
         - image: 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest
           imagePullPolicy: Always
-          name: cicd-flashcards
+          name: flashcards
           ports:
-            - containerPort: 3000
+            - containerPort: 80

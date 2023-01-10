@@ -7,12 +7,12 @@ metadata:
     app.kubernetes.io/version: "1.0.0"
     app.kubernetes.io/component: backend
     app.kubernetes.io/managed-by: kubectl
-  name: cicd-flashcards
+  name: flashcards
 spec:
   selector:
-    app: cicd-flashcards
+    app: flashcards
   type: LoadBalancer
   ports:
    -  protocol: TCP
       port: 80
-      targetPort: 3000
+      targetPort: 80
