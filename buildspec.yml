@@ -26,12 +26,15 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 948731545609.dkr.ecr.us-west-2.amazonaws.com
-  build:
-    commands:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t flashcards .
       - docker tag flashcards:latest 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest
+      - echo pre build ended
+  build:
+    commands:
+      - echo build started
+     
   post_build:
     commands:
       - echo Build completed on `date`
