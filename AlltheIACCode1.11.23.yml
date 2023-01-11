@@ -1,0 +1,2565 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Metadata:
+    Generator: "former2"
+Description: ""
+Resources:
+    EC2Instance:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0b149b4c68ab69dce"
+            InstanceType: "t3.medium"
+            KeyName: "keypair"
+            AvailabilityZone: !GetAtt EC2Instance2.AvailabilityZone
+            Tenancy: "default"
+            SubnetId: !Ref EC2Subnet4
+            EbsOptimized: false
+            SecurityGroupIds: 
+              - !Ref EC2SecurityGroup6
+              - !Ref EC2SecurityGroup8
+              - !Ref EC2SecurityGroup6
+              - !Ref EC2SecurityGroup8
+            SourceDestCheck: true
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/xvda"
+                Ebs: 
+                    Encrypted: false
+                    VolumeSize: 20
+                    SnapshotId: "snap-00fa56cc077067d6f"
+                    VolumeType: "gp2"
+                    DeleteOnTermination: true
+            UserData: "TUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvbWl4ZWQ7IGJvdW5kYXJ5PSIvLyIKCi0tLy8KQ29udGVudC1UeXBlOiB0ZXh0L3gtc2hlbGxzY3JpcHQ7IGNoYXJzZXQ9InVzLWFzY2lpIgojIS9iaW4vYmFzaApzZXQgLWV4CkI2NF9DTFVTVEVSX0NBPUxTMHRMUzFDUlVkSlRpQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENrMUpTVU12YWtORFFXVmhaMEYzU1VKQlowbENRVVJCVGtKbmEzRm9hMmxIT1hjd1FrRlJjMFpCUkVGV1RWSk5kMFZSV1VSV1VWRkVSWGR3Y21SWFNtd0tZMjAxYkdSSFZucE5RalJZUkZSSmVrMUVSWGRPZWtsNFRWUm5lazlXYjFoRVZFMTZUVVJGZDA1RVNYaE5WR2Q2VDFadmQwWlVSVlJOUWtWSFFURlZSUXBCZUUxTFlUTldhVnBZU25WYVdGSnNZM3BEUTBGVFNYZEVVVmxLUzI5YVNXaDJZMDVCVVVWQ1FsRkJSR2RuUlZCQlJFTkRRVkZ2UTJkblJVSkJUVlpXQ21sSGJ6QjJSRkV3T0hCb1JVZHFjRm94Y2pCalJpdGFRVkJ1YTBZM1RsZ3hhVzlyY2sxTU1ucFpOV1pCTkVsUmNUZ3dlRTFOZUdKeVYybFBVakphVUdNS1UwNUNSemRhWlVnck1sRjVVMFp4VlhveldtZzRkVEUyZG5kQk4zQlVRMDVsUlZWa1dXNDJhbGxCTlRGa1duTmpVWFp5V2pWS1pYbDBSVnA1YWtSTFZncFlaRmQyVm1KVE9ESlVOMUJFVlU5a1IwUXlOWFpaWkhjeVNUa3ZOMWt2YzJkVFMzWlpXbEZ1U0ZKNE5VRm1kVEprVGpKeVlYRnJNV1pUVldGaFQwcG5DbkpYTjI0NWFtNXFjemROWW1OTUsxTTBPR1ZNWlROMk0yRkJWRTU2TjBONWNIRXZlRkV4U0VaSVRXZHlOMFZpYUhnd1IwNDJXR3QzVm04MmVFcGhVMHdLV25CeFJscGpNVVJMVjFaWVpYbGtXbUpHV1dkb2NpdHNOVWxFYm14QmIzUjNabWxXT0N0TlVqaHhkbGRGVVVKak5WWXJaMDh2V21WS1ptOU9WbFYzVEFvd1RVc3JVblExWjBadGJtNVhOMGxUTnpJd1EwRjNSVUZCWVU1YVRVWmpkMFJuV1VSV1VqQlFRVkZJTDBKQlVVUkJaMHRyVFVFNFIwRXhWV1JGZDBWQ0NpOTNVVVpOUVUxQ1FXWTRkMGhSV1VSV1VqQlBRa0paUlVaRVIxUnFOaTg1Y1U1a1ZEQkNkVWRFWVU1eU1GcEpkVFJpVldOTlFsVkhRVEZWWkVWUlVVOEtUVUY1UTBOdGRERlpiVlo1WW0xV01GcFlUWGRFVVZsS1MyOWFTV2gyWTA1QlVVVk1RbEZCUkdkblJVSkJTREV3ZDBWUVMyWkVSRTVQUTBkdE9HNXFSZ3ByZGpneWRTdGhSbFJYWTFsSFIzUkpabVZ6WnpsdGVGTXJRblJSTm5oSk9VODNRVUZqTTFCM1VXeHJZa1U0Tm1aWGVsQmpWVWxtSzBnNGRrd3pRMnByQ20xTE5USlJOVmRaVUhwRFMydG1UbnB4WW1aUlJuVTRlWE5qUkd0NVlteHdOazVwVlRWMVMwbDFObkppTlUxVlNXTndSMUV5Y0VkaE1rZHZVbVJGWlVRS0syUnRjakJ6Ym1sSlNXMXdkSFZPUkdKVFJrcHNRVWhGSzJabmJsWXdlbWxHZFZJemFtVnlUbFpIWTBsdUwwOVZOVWt3YzJGeFRtcHFVM1JCVEUxeVN3bzJTWGRETnpoelZEVndUVGhYWWprclVURXZlbWx5Y0hweFRUY3dWR1Z4U1RCME1HUkhjVEl5VVhCR1psTnBWRmh2WTNWTE5HdHFOVFIzWTJ0RmN6aHBDblJZZVZKNVJ6UklMeXRwT0RGMlNVcHFUelZQZG1odU5HczBSR1pSUVhjNFJqVlRWMGgwZFdwakwwcG5hM3BLVG1oWFptc3phWGhEYURSQ1lWQlFiRkFLWmtFNFBRb3RMUzB0TFVWT1JDQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENnPT0KQVBJX1NFUlZFUl9VUkw9aHR0cHM6Ly84RTQyM0UyMzIyMzA0NzA5NjYxMkMzNzEzNTdBQzlCRS5ncjcudXMtd2VzdC0yLmVrcy5hbWF6b25hd3MuY29tCks4U19DTFVTVEVSX0ROU19JUD0xMC4xMDAuMC4xMAovZXRjL2Vrcy9ib290c3RyYXAuc2ggZWtzLWNsdXN0ZXIgLS1rdWJlbGV0LWV4dHJhLWFyZ3MgJy0tbm9kZS1sYWJlbHM9ZWtzLmFtYXpvbmF3cy5jb20vbm9kZWdyb3VwLWltYWdlPWFtaS0wYjE0OWI0YzY4YWI2OWRjZSxla3MuYW1hem9uYXdzLmNvbS9jYXBhY2l0eVR5cGU9T05fREVNQU5ELGVrcy5hbWF6b25hd3MuY29tL25vZGVncm91cD1la3Mtd29ya2VyLW5vZGUtZ3JvdXAgLS1tYXgtcG9kcz0xNycgLS1iNjQtY2x1c3Rlci1jYSAkQjY0X0NMVVNURVJfQ0EgLS1hcGlzZXJ2ZXItZW5kcG9pbnQgJEFQSV9TRVJWRVJfVVJMIC0tZG5zLWNsdXN0ZXItaXAgJEs4U19DTFVTVEVSX0ROU19JUCAtLXVzZS1tYXgtcG9kcyBmYWxzZQoKLS0vLy0t"
+            IamInstanceProfile: "eks-3cc2c715-c871-cbff-710f-ebf8cdbe377d"
+            Tags: 
+              - 
+                Key: "k8s.io/cluster-autoscaler/enabled"
+                Value: "true"
+              - 
+                Key: "kubernetes.io/cluster/eks-cluster"
+                Value: "owned"
+              - 
+                Key: "k8s.io/cluster-autoscaler/eks-cluster"
+                Value: "owned"
+              - 
+                Key: "eks:cluster-name"
+                Value: "eks-cluster"
+              - 
+                Key: "Name"
+                Value: "EKS Workernodes"
+              - 
+                Key: "eks:nodegroup-name"
+                Value: "eks-worker-node-group"
+            HibernationOptions: 
+                Configured: false
+            CpuOptions: 
+                CoreCount: 1
+                ThreadsPerCore: 2
+            EnclaveOptions: 
+                Enabled: false
+
+    EC2Instance2:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0941a7859f46171d5"
+            InstanceType: "t2.medium"
+            AvailabilityZone: !GetAtt EC2Subnet3.AvailabilityZone
+            Tenancy: "default"
+            SubnetId: !Ref EC2Subnet3
+            EbsOptimized: false
+            SecurityGroupIds: 
+              - !Ref EC2SecurityGroup5
+            SourceDestCheck: true
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/xvda"
+                Ebs: 
+                    Encrypted: false
+                    VolumeSize: 30
+                    SnapshotId: "snap-08e2a0765c31d015b"
+                    VolumeType: "gp2"
+                    DeleteOnTermination: true
+            UserData: "IyEvYmluL2Jhc2gKZWNobyBFQ1NfQ0xVU1RFUj1mbGFzaC1jYXJkcyA+PiAvZXRjL2Vjcy9lY3MuY29uZmlnO2VjaG8gRUNTX0JBQ0tFTkRfSE9TVD0gPj4gL2V0Yy9lY3MvZWNzLmNvbmZpZzs="
+            IamInstanceProfile: "ecsInstanceRole"
+            Monitoring: true
+            Tags: 
+              - 
+                Key: "Name"
+                Value: !Sub "ECS Instance - EC2ContainerService-${ECSCluster}"
+              - 
+                Key: "Description"
+                Value: "This instance is the part of the Auto Scaling group which was created through ECS Console"
+            HibernationOptions: 
+                Configured: false
+            EnclaveOptions: 
+                Enabled: false
+
+    EC2Instance3:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0b149b4c68ab69dce"
+            InstanceType: "t3.medium"
+            KeyName: "keypair"
+            AvailabilityZone: !GetAtt EC2Instance4.AvailabilityZone
+            Tenancy: "default"
+            SubnetId: !Ref EC2Subnet
+            EbsOptimized: false
+            SecurityGroupIds: 
+              - !Ref EC2SecurityGroup6
+              - !Ref EC2SecurityGroup8
+              - !Ref EC2SecurityGroup6
+              - !Ref EC2SecurityGroup8
+            SourceDestCheck: true
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/xvda"
+                Ebs: 
+                    Encrypted: false
+                    VolumeSize: 20
+                    SnapshotId: "snap-00fa56cc077067d6f"
+                    VolumeType: "gp2"
+                    DeleteOnTermination: true
+            UserData: "TUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvbWl4ZWQ7IGJvdW5kYXJ5PSIvLyIKCi0tLy8KQ29udGVudC1UeXBlOiB0ZXh0L3gtc2hlbGxzY3JpcHQ7IGNoYXJzZXQ9InVzLWFzY2lpIgojIS9iaW4vYmFzaApzZXQgLWV4CkI2NF9DTFVTVEVSX0NBPUxTMHRMUzFDUlVkSlRpQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENrMUpTVU12YWtORFFXVmhaMEYzU1VKQlowbENRVVJCVGtKbmEzRm9hMmxIT1hjd1FrRlJjMFpCUkVGV1RWSk5kMFZSV1VSV1VWRkVSWGR3Y21SWFNtd0tZMjAxYkdSSFZucE5RalJZUkZSSmVrMUVSWGRPZWtsNFRWUm5lazlXYjFoRVZFMTZUVVJGZDA1RVNYaE5WR2Q2VDFadmQwWlVSVlJOUWtWSFFURlZSUXBCZUUxTFlUTldhVnBZU25WYVdGSnNZM3BEUTBGVFNYZEVVVmxLUzI5YVNXaDJZMDVCVVVWQ1FsRkJSR2RuUlZCQlJFTkRRVkZ2UTJkblJVSkJUVlpXQ21sSGJ6QjJSRkV3T0hCb1JVZHFjRm94Y2pCalJpdGFRVkJ1YTBZM1RsZ3hhVzlyY2sxTU1ucFpOV1pCTkVsUmNUZ3dlRTFOZUdKeVYybFBVakphVUdNS1UwNUNSemRhWlVnck1sRjVVMFp4VlhveldtZzRkVEUyZG5kQk4zQlVRMDVsUlZWa1dXNDJhbGxCTlRGa1duTmpVWFp5V2pWS1pYbDBSVnA1YWtSTFZncFlaRmQyVm1KVE9ESlVOMUJFVlU5a1IwUXlOWFpaWkhjeVNUa3ZOMWt2YzJkVFMzWlpXbEZ1U0ZKNE5VRm1kVEprVGpKeVlYRnJNV1pUVldGaFQwcG5DbkpYTjI0NWFtNXFjemROWW1OTUsxTTBPR1ZNWlROMk0yRkJWRTU2TjBONWNIRXZlRkV4U0VaSVRXZHlOMFZpYUhnd1IwNDJXR3QzVm04MmVFcGhVMHdLV25CeFJscGpNVVJMVjFaWVpYbGtXbUpHV1dkb2NpdHNOVWxFYm14QmIzUjNabWxXT0N0TlVqaHhkbGRGVVVKak5WWXJaMDh2V21WS1ptOU9WbFYzVEFvd1RVc3JVblExWjBadGJtNVhOMGxUTnpJd1EwRjNSVUZCWVU1YVRVWmpkMFJuV1VSV1VqQlFRVkZJTDBKQlVVUkJaMHRyVFVFNFIwRXhWV1JGZDBWQ0NpOTNVVVpOUVUxQ1FXWTRkMGhSV1VSV1VqQlBRa0paUlVaRVIxUnFOaTg1Y1U1a1ZEQkNkVWRFWVU1eU1GcEpkVFJpVldOTlFsVkhRVEZWWkVWUlVVOEtUVUY1UTBOdGRERlpiVlo1WW0xV01GcFlUWGRFVVZsS1MyOWFTV2gyWTA1QlVVVk1RbEZCUkdkblJVSkJTREV3ZDBWUVMyWkVSRTVQUTBkdE9HNXFSZ3ByZGpneWRTdGhSbFJYWTFsSFIzUkpabVZ6WnpsdGVGTXJRblJSTm5oSk9VODNRVUZqTTFCM1VXeHJZa1U0Tm1aWGVsQmpWVWxtSzBnNGRrd3pRMnByQ20xTE5USlJOVmRaVUhwRFMydG1UbnB4WW1aUlJuVTRlWE5qUkd0NVlteHdOazVwVlRWMVMwbDFObkppTlUxVlNXTndSMUV5Y0VkaE1rZHZVbVJGWlVRS0syUnRjakJ6Ym1sSlNXMXdkSFZPUkdKVFJrcHNRVWhGSzJabmJsWXdlbWxHZFZJemFtVnlUbFpIWTBsdUwwOVZOVWt3YzJGeFRtcHFVM1JCVEUxeVN3bzJTWGRETnpoelZEVndUVGhYWWprclVURXZlbWx5Y0hweFRUY3dWR1Z4U1RCME1HUkhjVEl5VVhCR1psTnBWRmh2WTNWTE5HdHFOVFIzWTJ0RmN6aHBDblJZZVZKNVJ6UklMeXRwT0RGMlNVcHFUelZQZG1odU5HczBSR1pSUVhjNFJqVlRWMGgwZFdwakwwcG5hM3BLVG1oWFptc3phWGhEYURSQ1lWQlFiRkFLWmtFNFBRb3RMUzB0TFVWT1JDQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENnPT0KQVBJX1NFUlZFUl9VUkw9aHR0cHM6Ly84RTQyM0UyMzIyMzA0NzA5NjYxMkMzNzEzNTdBQzlCRS5ncjcudXMtd2VzdC0yLmVrcy5hbWF6b25hd3MuY29tCks4U19DTFVTVEVSX0ROU19JUD0xMC4xMDAuMC4xMAovZXRjL2Vrcy9ib290c3RyYXAuc2ggZWtzLWNsdXN0ZXIgLS1rdWJlbGV0LWV4dHJhLWFyZ3MgJy0tbm9kZS1sYWJlbHM9ZWtzLmFtYXpvbmF3cy5jb20vbm9kZWdyb3VwLWltYWdlPWFtaS0wYjE0OWI0YzY4YWI2OWRjZSxla3MuYW1hem9uYXdzLmNvbS9jYXBhY2l0eVR5cGU9T05fREVNQU5ELGVrcy5hbWF6b25hd3MuY29tL25vZGVncm91cD1la3Mtd29ya2VyLW5vZGUtZ3JvdXAgLS1tYXgtcG9kcz0xNycgLS1iNjQtY2x1c3Rlci1jYSAkQjY0X0NMVVNURVJfQ0EgLS1hcGlzZXJ2ZXItZW5kcG9pbnQgJEFQSV9TRVJWRVJfVVJMIC0tZG5zLWNsdXN0ZXItaXAgJEs4U19DTFVTVEVSX0ROU19JUCAtLXVzZS1tYXgtcG9kcyBmYWxzZQoKLS0vLy0t"
+            IamInstanceProfile: "eks-3cc2c715-c871-cbff-710f-ebf8cdbe377d"
+            Tags: 
+              - 
+                Key: "eks:cluster-name"
+                Value: "eks-cluster"
+              - 
+                Key: "Name"
+                Value: "EKS Workernodes"
+              - 
+                Key: "k8s.io/cluster-autoscaler/enabled"
+                Value: "true"
+              - 
+                Key: "kubernetes.io/cluster/eks-cluster"
+                Value: "owned"
+              - 
+                Key: "eks:nodegroup-name"
+                Value: "eks-worker-node-group"
+              - 
+                Key: "k8s.io/cluster-autoscaler/eks-cluster"
+                Value: "owned"
+            HibernationOptions: 
+                Configured: false
+            CpuOptions: 
+                CoreCount: 1
+                ThreadsPerCore: 2
+            EnclaveOptions: 
+                Enabled: false
+
+    EC2Instance4:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0941a7859f46171d5"
+            InstanceType: "t2.medium"
+            AvailabilityZone: !GetAtt EC2Subnet.AvailabilityZone
+            Tenancy: "default"
+            SubnetId: !Ref EC2Subnet5
+            EbsOptimized: false
+            SecurityGroupIds: 
+              - !Ref EC2SecurityGroup5
+            SourceDestCheck: true
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/xvda"
+                Ebs: 
+                    Encrypted: false
+                    VolumeSize: 30
+                    SnapshotId: "snap-08e2a0765c31d015b"
+                    VolumeType: "gp2"
+                    DeleteOnTermination: true
+            UserData: "IyEvYmluL2Jhc2gKZWNobyBFQ1NfQ0xVU1RFUj1mbGFzaC1jYXJkcyA+PiAvZXRjL2Vjcy9lY3MuY29uZmlnO2VjaG8gRUNTX0JBQ0tFTkRfSE9TVD0gPj4gL2V0Yy9lY3MvZWNzLmNvbmZpZzs="
+            IamInstanceProfile: "ecsInstanceRole"
+            Monitoring: true
+            Tags: 
+              - 
+                Key: "Name"
+                Value: !Sub "ECS Instance - EC2ContainerService-${ECSCluster}"
+              - 
+                Key: "Description"
+                Value: "This instance is the part of the Auto Scaling group which was created through ECS Console"
+            HibernationOptions: 
+                Configured: false
+            EnclaveOptions: 
+                Enabled: false
+
+    ElasticLoadBalancingLoadBalancer:
+        Type: "AWS::ElasticLoadBalancing::LoadBalancer"
+        Properties:
+            LoadBalancerName: "acce836c505924dd4a0aadbc892c6f72"
+            Listeners: 
+              - 
+                InstancePort: 32554
+                InstanceProtocol: "TCP"
+                LoadBalancerPort: 80
+                Protocol: "TCP"
+            Subnets: 
+              - !Ref EC2Subnet4
+              - !Ref EC2Subnet
+            Instances: 
+              - !Ref EC2Instance
+              - !Ref EC2Instance3
+            HealthCheck: 
+                Target: "TCP:32554"
+                Interval: 10
+                Timeout: 5
+                UnhealthyThreshold: 6
+                HealthyThreshold: 2
+            SecurityGroups: 
+              - !Ref EC2SecurityGroup2
+            Scheme: "internet-facing"
+            CrossZone: false
+            AccessLoggingPolicy: 
+                Enabled: false
+            ConnectionDrainingPolicy: 
+                Enabled: false
+                Timeout: 300
+            ConnectionSettings: 
+                IdleTimeout: 60
+            Tags: 
+              - 
+                Key: "kubernetes.io/service-name"
+                Value: "default/cicd-flashcards"
+              - 
+                Key: "kubernetes.io/cluster/eks-cluster"
+                Value: "owned"
+
+    ElasticLoadBalancingLoadBalancer2:
+        Type: "AWS::ElasticLoadBalancing::LoadBalancer"
+        Properties:
+            LoadBalancerName: "ae7a05b2623724204bb1f656cc3b9b23"
+            Listeners: 
+              - 
+                InstancePort: 31819
+                InstanceProtocol: "TCP"
+                LoadBalancerPort: 80
+                Protocol: "TCP"
+            Subnets: 
+              - !Ref EC2Subnet4
+              - !Ref EC2Subnet
+            Instances: 
+              - !Ref EC2Instance
+              - !Ref EC2Instance3
+            HealthCheck: 
+                Target: "TCP:31819"
+                Interval: 10
+                Timeout: 5
+                UnhealthyThreshold: 6
+                HealthyThreshold: 2
+            SecurityGroups: 
+              - !Ref EC2SecurityGroup3
+            Scheme: "internet-facing"
+            CrossZone: false
+            AccessLoggingPolicy: 
+                Enabled: false
+            ConnectionDrainingPolicy: 
+                Enabled: false
+                Timeout: 300
+            ConnectionSettings: 
+                IdleTimeout: 60
+            Tags: 
+              - 
+                Key: "kubernetes.io/service-name"
+                Value: "default/flashcards"
+              - 
+                Key: "kubernetes.io/cluster/eks-cluster"
+                Value: "owned"
+
+    ElasticLoadBalancingV2LoadBalancer:
+        Type: "AWS::ElasticLoadBalancingV2::LoadBalancer"
+        Properties:
+            Name: !Sub "${ECSService.Name}-ALB"
+            Scheme: "internet-facing"
+            Type: "application"
+            Subnets: 
+              - !Ref EC2Subnet8
+              - !Ref EC2Subnet2
+            SecurityGroups: 
+              - !Sub "${ElasticLoadBalancingV2LoadBalancer2.SecurityGroups}"
+            IpAddressType: "ipv4"
+            LoadBalancerAttributes: 
+              - 
+                Key: "access_logs.s3.enabled"
+                Value: "false"
+              - 
+                Key: "idle_timeout.timeout_seconds"
+                Value: "60"
+              - 
+                Key: "deletion_protection.enabled"
+                Value: "false"
+              - 
+                Key: "routing.http2.enabled"
+                Value: "true"
+              - 
+                Key: "routing.http.drop_invalid_header_fields.enabled"
+                Value: "false"
+              - 
+                Key: "routing.http.xff_client_port.enabled"
+                Value: "false"
+              - 
+                Key: "routing.http.preserve_host_header.enabled"
+                Value: "false"
+              - 
+                Key: "routing.http.xff_header_processing.mode"
+                Value: "append"
+              - 
+                Key: "load_balancing.cross_zone.enabled"
+                Value: "true"
+              - 
+                Key: "routing.http.desync_mitigation_mode"
+                Value: "defensive"
+              - 
+                Key: "waf.fail_open.enabled"
+                Value: "false"
+              - 
+                Key: "routing.http.x_amzn_tls_version_and_cipher_suite.enabled"
+                Value: "false"
+
+    ElasticLoadBalancingV2LoadBalancer2:
+        Type: "AWS::ElasticLoadBalancingV2::LoadBalancer"
+        Properties:
+            Name: !Sub "${ECSService.Name}-ALB-Instance"
+            Scheme: "internet-facing"
+            Type: "application"
+            Subnets: 
+              - !Ref EC2Subnet8
+              - !Ref EC2Subnet2
+            SecurityGroups: 
+              - !Ref EC2SecurityGroup4
+            IpAddressType: "ipv4"
+            LoadBalancerAttributes: 
+              - 
+                Key: "access_logs.s3.enabled"
+                Value: "false"
+              - 
+                Key: "idle_timeout.timeout_seconds"
+                Value: "60"
+              - 
+                Key: "deletion_protection.enabled"
+                Value: "false"
+              - 
+                Key: "routing.http2.enabled"
+                Value: "true"
+              - 
+                Key: "routing.http.drop_invalid_header_fields.enabled"
+                Value: "false"
+              - 
+                Key: "routing.http.xff_client_port.enabled"
+                Value: "false"
+              - 
+                Key: "routing.http.preserve_host_header.enabled"
+                Value: "false"
+              - 
+                Key: "routing.http.xff_header_processing.mode"
+                Value: "append"
+              - 
+                Key: "load_balancing.cross_zone.enabled"
+                Value: "true"
+              - 
+                Key: "routing.http.desync_mitigation_mode"
+                Value: "defensive"
+              - 
+                Key: "waf.fail_open.enabled"
+                Value: "false"
+              - 
+                Key: "routing.http.x_amzn_tls_version_and_cipher_suite.enabled"
+                Value: "false"
+
+    ElasticLoadBalancingV2Listener:
+        Type: "AWS::ElasticLoadBalancingV2::Listener"
+        Properties:
+            LoadBalancerArn: !Ref ElasticLoadBalancingV2LoadBalancer
+            Port: 80
+            Protocol: "HTTP"
+            DefaultActions: 
+              - 
+                Order: 1
+                TargetGroupArn: !Ref ElasticLoadBalancingV2TargetGroup2
+                Type: "forward"
+
+    ElasticLoadBalancingV2Listener2:
+        Type: "AWS::ElasticLoadBalancingV2::Listener"
+        Properties:
+            LoadBalancerArn: !Sub "arn:aws:elasticloadbalancing:${AWS::Region}:${AWS::AccountId}:loadbalancer/app/${ElasticLoadBalancingV2LoadBalancer.LoadBalancerName}-Instance/a39dc6865ca2f1d0"
+            Port: 80
+            Protocol: "HTTP"
+            DefaultActions: 
+              - 
+                TargetGroupArn: !Ref ElasticLoadBalancingV2TargetGroup
+                Type: "forward"
+
+    AutoScalingAutoScalingGroup:
+        Type: "AWS::AutoScaling::AutoScalingGroup"
+        Properties:
+            AutoScalingGroupName: !Sub "EC2ContainerService-${ECSCluster}-EcsInstanceAsg-15936PCJ8SSP4"
+            LaunchConfigurationName: !Ref AutoScalingLaunchConfiguration
+            MinSize: 0
+            MaxSize: 2
+            DesiredCapacity: 2
+            Cooldown: 300
+            AvailabilityZones: 
+              - !GetAtt EC2Instance3.AvailabilityZone
+              - !GetAtt EC2Instance.AvailabilityZone
+            HealthCheckType: "EC2"
+            HealthCheckGracePeriod: 0
+            VPCZoneIdentifier: 
+              - !Ref EC2Subnet3
+              - !Ref EC2Subnet5
+            TerminationPolicies: 
+              - "Default"
+            ServiceLinkedRoleARN: !Sub "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling"
+            Tags: 
+              - 
+                Key: "Description"
+                Value: "This instance is the part of the Auto Scaling group which was created through ECS Console"
+                PropagateAtLaunch: true
+              - 
+                Key: "Name"
+                Value: !Sub "ECS Instance - EC2ContainerService-${ECSCluster}"
+                PropagateAtLaunch: true
+            NewInstancesProtectedFromScaleIn: false
+
+    AutoScalingAutoScalingGroup2:
+        Type: "AWS::AutoScaling::AutoScalingGroup"
+        Properties:
+            AutoScalingGroupName: !Sub "${ECSService.Name}-EC2-AutoScale"
+            LaunchTemplate: 
+                LaunchTemplateId: !Ref EC2LaunchTemplate2
+                LaunchTemplateName: !Sub "${ECSService.Name}-LaunchTemp"
+                Version: "$Latest"
+            MinSize: 0
+            MaxSize: 0
+            DesiredCapacity: 0
+            Cooldown: 300
+            AvailabilityZones: 
+              - !GetAtt EC2Instance3.AvailabilityZone
+              - !GetAtt EC2Instance.AvailabilityZone
+            TargetGroupARNs: 
+              - !Ref ElasticLoadBalancingV2TargetGroup
+            HealthCheckType: "ELB"
+            HealthCheckGracePeriod: 300
+            VPCZoneIdentifier: 
+              - !Ref EC2Subnet2
+              - !Ref EC2Subnet8
+            TerminationPolicies: 
+              - "Default"
+            ServiceLinkedRoleARN: !Sub "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling"
+            MetricsCollection: 
+                Granularity: "1Minute"
+                Metrics: 
+                  - "GroupMaxSize"
+                  - "GroupMinSize"
+                  - "GroupPendingInstances"
+                  - "WarmPoolTotalCapacity"
+                  - "WarmPoolMinSize"
+                  - "GroupAndWarmPoolDesiredCapacity"
+                  - "GroupAndWarmPoolTotalCapacity"
+                  - "GroupPendingCapacity"
+                  - "WarmPoolDesiredCapacity"
+                  - "GroupTerminatingCapacity"
+                  - "GroupTotalInstances"
+                  - "GroupStandbyCapacity"
+                  - "GroupTerminatingInstances"
+                  - "GroupTotalCapacity"
+                  - "GroupStandbyInstances"
+                  - "GroupDesiredCapacity"
+                  - "WarmPoolWarmedCapacity"
+                  - "GroupInServiceInstances"
+                  - "WarmPoolTerminatingCapacity"
+                  - "WarmPoolPendingCapacity"
+                  - "GroupInServiceCapacity"
+            Tags: 
+              - 
+                Key: "Project"
+                Value: !GetAtt ECSService.Name
+                PropagateAtLaunch: true
+            NewInstancesProtectedFromScaleIn: false
+
+    AutoScalingAutoScalingGroup3:
+        Type: "AWS::AutoScaling::AutoScalingGroup"
+        Properties:
+            AutoScalingGroupName: !Sub "${ECSService.Name}-ECSAS-Public"
+            LaunchTemplate: 
+                LaunchTemplateId: !Ref EC2LaunchTemplate2
+                LaunchTemplateName: !Sub "${ECSService.Name}-LaunchTemp"
+                Version: "$Latest"
+            MinSize: 0
+            MaxSize: 0
+            DesiredCapacity: 0
+            Cooldown: 300
+            AvailabilityZones: 
+              - !GetAtt EC2Instance3.AvailabilityZone
+              - !GetAtt EC2Instance.AvailabilityZone
+            TargetGroupARNs: 
+              - !Ref ElasticLoadBalancingV2TargetGroup
+            HealthCheckType: "ELB"
+            HealthCheckGracePeriod: 300
+            VPCZoneIdentifier: 
+              - !Ref EC2Subnet2
+              - !Ref EC2Subnet8
+            TerminationPolicies: 
+              - "Default"
+            ServiceLinkedRoleARN: !Sub "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling"
+            MetricsCollection: 
+                Granularity: "1Minute"
+                Metrics: 
+                  - "GroupStandbyCapacity"
+                  - "WarmPoolPendingCapacity"
+                  - "GroupStandbyInstances"
+                  - "GroupTotalCapacity"
+                  - "WarmPoolMinSize"
+                  - "WarmPoolTotalCapacity"
+                  - "GroupInServiceCapacity"
+                  - "GroupPendingCapacity"
+                  - "GroupTerminatingInstances"
+                  - "WarmPoolWarmedCapacity"
+                  - "WarmPoolTerminatingCapacity"
+                  - "GroupTerminatingCapacity"
+                  - "GroupPendingInstances"
+                  - "WarmPoolDesiredCapacity"
+                  - "GroupMinSize"
+                  - "GroupTotalInstances"
+                  - "GroupMaxSize"
+                  - "GroupDesiredCapacity"
+                  - "GroupAndWarmPoolDesiredCapacity"
+                  - "GroupAndWarmPoolTotalCapacity"
+                  - "GroupInServiceInstances"
+            Tags: 
+              - 
+                Key: "Project"
+                Value: !GetAtt ECSService.Name
+                PropagateAtLaunch: true
+            NewInstancesProtectedFromScaleIn: false
+
+    AutoScalingAutoScalingGroup4:
+        Type: "AWS::AutoScaling::AutoScalingGroup"
+        Properties:
+            AutoScalingGroupName: "eks-eks-worker-node-group-3cc2c715-c871-cbff-710f-ebf8cdbe377d"
+            MixedInstancesPolicy: 
+                LaunchTemplate: 
+                    LaunchTemplateSpecification: 
+                        LaunchTemplateId: !Ref EC2LaunchTemplate
+                        LaunchTemplateName: "eks-3cc2c715-c871-cbff-710f-ebf8cdbe377d"
+                        Version: "1"
+                    Overrides: 
+                      - 
+                        InstanceType: "t3.medium"
+                InstancesDistribution: 
+                    OnDemandAllocationStrategy: "prioritized"
+                    OnDemandBaseCapacity: 0
+                    OnDemandPercentageAboveBaseCapacity: 100
+                    SpotAllocationStrategy: "lowest-price"
+                    SpotInstancePools: 2
+            MinSize: 1
+            MaxSize: 2
+            DesiredCapacity: 2
+            Cooldown: 300
+            AvailabilityZones: 
+              - !GetAtt EC2Instance3.AvailabilityZone
+              - !GetAtt EC2Instance.AvailabilityZone
+            HealthCheckType: "EC2"
+            HealthCheckGracePeriod: 15
+            VPCZoneIdentifier: 
+              - !Ref EC2Subnet
+              - !Ref EC2Subnet4
+              - !Ref EC2Subnet6
+              - !Ref EC2Subnet7
+            TerminationPolicies: 
+              - "AllocationStrategy"
+              - "OldestLaunchTemplate"
+              - "OldestInstance"
+            ServiceLinkedRoleARN: !Sub "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling"
+            Tags: 
+              - 
+                Key: "eks:cluster-name"
+                Value: "eks-cluster"
+                PropagateAtLaunch: true
+              - 
+                Key: "eks:nodegroup-name"
+                Value: "eks-worker-node-group"
+                PropagateAtLaunch: true
+              - 
+                Key: "k8s.io/cluster-autoscaler/eks-cluster"
+                Value: "owned"
+                PropagateAtLaunch: true
+              - 
+                Key: "k8s.io/cluster-autoscaler/enabled"
+                Value: "true"
+                PropagateAtLaunch: true
+              - 
+                Key: "kubernetes.io/cluster/eks-cluster"
+                Value: "owned"
+                PropagateAtLaunch: true
+            NewInstancesProtectedFromScaleIn: false
+            CapacityRebalance: true
+
+    AutoScalingLifecycleHook:
+        Type: "AWS::AutoScaling::LifecycleHook"
+        Properties:
+            LifecycleHookName: "Launch-LC-Hook"
+            AutoScalingGroupName: !Ref AutoScalingAutoScalingGroup4
+            NotificationTargetARN: !Sub "arn:aws:sns:${AWS::Region}:115974792636:eks-asg-lifecycle-hook-topic"
+            HeartbeatTimeout: 1800
+            DefaultResult: "CONTINUE"
+            LifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING"
+
+    AutoScalingLifecycleHook2:
+        Type: "AWS::AutoScaling::LifecycleHook"
+        Properties:
+            LifecycleHookName: "Terminate-LC-Hook"
+            AutoScalingGroupName: !Ref AutoScalingAutoScalingGroup4
+            NotificationTargetARN: !Sub "arn:aws:sns:${AWS::Region}:115974792636:eks-asg-lifecycle-hook-topic"
+            HeartbeatTimeout: 1800
+            DefaultResult: "CONTINUE"
+            LifecycleTransition: "autoscaling:EC2_INSTANCE_TERMINATING"
+
+    AutoScalingLifecycleHook3:
+        Type: "AWS::AutoScaling::LifecycleHook"
+        Properties:
+            LifecycleHookName: !Sub "CodeDeploy-managed-automatic-launch-deployment-hook-${ECSService.Name}CDDG-ecc774b9-018b-475d-a470-07d15f38eb0c"
+            AutoScalingGroupName: !Ref AutoScalingAutoScalingGroup3
+            NotificationTargetARN: !Sub "arn:aws:sqs:${AWS::Region}:549908205128:razorbill-${AWS::Region}-prod-default-autoscaling-lifecycle-hook"
+            NotificationMetadata: "dd8a6588-942b-41ab-a99a-b478b962297c"
+            HeartbeatTimeout: 600
+            DefaultResult: "ABANDON"
+            LifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING"
+
+    EC2SecurityGroup:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "Cluster communication with worker nodes"
+            GroupName: "eks-vpc-ControlPlaneSecurityGroup-1CEH23AY67DBL"
+            VpcId: !Ref EC2VPC
+            SecurityGroupEgress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                IpProtocol: "-1"
+
+    EC2SecurityGroup2:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "Security group for Kubernetes ELB acce836c505924dd4a0aadbc892c6f72 (default/cicd-flashcards)"
+            GroupName: "k8s-elb-acce836c505924dd4a0aadbc892c6f72"
+            Tags: 
+              - 
+                Key: "kubernetes.io/cluster/eks-cluster"
+                Value: "owned"
+            VpcId: !Ref EC2VPC
+            SecurityGroupIngress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                FromPort: 80
+                IpProtocol: "tcp"
+                ToPort: 80
+              - 
+                CidrIp: "0.0.0.0/0"
+                FromPort: 3
+                IpProtocol: "icmp"
+                ToPort: 4
+            SecurityGroupEgress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                IpProtocol: "-1"
+
+    EC2SecurityGroup3:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "Security group for Kubernetes ELB ae7a05b2623724204bb1f656cc3b9b23 (default/flashcards)"
+            GroupName: "k8s-elb-ae7a05b2623724204bb1f656cc3b9b23"
+            Tags: 
+              - 
+                Key: "kubernetes.io/cluster/eks-cluster"
+                Value: "owned"
+            VpcId: !Ref EC2VPC
+            SecurityGroupIngress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                FromPort: 80
+                IpProtocol: "tcp"
+                ToPort: 80
+              - 
+                CidrIp: "0.0.0.0/0"
+                FromPort: 3
+                IpProtocol: "icmp"
+                ToPort: 4
+            SecurityGroupEgress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                IpProtocol: "-1"
+
+    EC2SecurityGroup4:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: !Sub "${ECSService.Name} Security Group"
+            GroupName: !Sub "${ECSService.Name}-SG"
+            Tags: 
+              - 
+                Key: "Name"
+                Value: !Sub "${ECSService.Name}-SG"
+            VpcId: !Ref EC2VPC3
+            SecurityGroupIngress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                FromPort: 80
+                IpProtocol: "tcp"
+                ToPort: 80
+            SecurityGroupEgress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                IpProtocol: "-1"
+
+    EC2SecurityGroup5:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "ECS Allowed Ports"
+            GroupName: !Sub "EC2ContainerService-${ECSCluster}-EcsSecurityGroup-1AD5VMR6B9PN1"
+            VpcId: !Ref EC2VPC2
+            SecurityGroupIngress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                FromPort: 80
+                IpProtocol: "tcp"
+                ToPort: 80
+            SecurityGroupEgress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                IpProtocol: "-1"
+
+    EC2SecurityGroup6:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "Security group for all nodes in the nodeGroup to allow SSH access"
+            GroupName: "eks-remoteAccess-3cc2c715-c871-cbff-710f-ebf8cdbe377d"
+            Tags: 
+              - 
+                Key: "eks"
+                Value: "eks-worker-node-group"
+              - 
+                Key: "eks:nodegroup-name"
+                Value: "eks-worker-node-group"
+            VpcId: !Ref EC2VPC
+            SecurityGroupIngress: 
+              - 
+                SourceSecurityGroupId: !Ref EC2SecurityGroup8
+                SourceSecurityGroupOwnerId: !Ref AWS::AccountId
+                FromPort: 22
+                IpProtocol: "tcp"
+                ToPort: 22
+            SecurityGroupEgress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                IpProtocol: "-1"
+
+    EC2SecurityGroup7:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-2 created 2023-01-04T03:48:03.128Z"
+            GroupName: "launch-wizard-2"
+            VpcId: "vpc-060012f0a42b5de5b"
+            SecurityGroupIngress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                FromPort: 22
+                IpProtocol: "tcp"
+                ToPort: 22
+            SecurityGroupEgress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                IpProtocol: "-1"
+
+    EC2SecurityGroup8:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "EKS created security group applied to ENI that is attached to EKS Control Plane master nodes, as well as any managed workloads."
+            GroupName: "eks-cluster-sg-eks-cluster-365256518"
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "eks-cluster-sg-eks-cluster-365256518"
+              - 
+                Key: "kubernetes.io/cluster/eks-cluster"
+                Value: "owned"
+            VpcId: !Ref EC2VPC
+            SecurityGroupIngress: 
+              - 
+                SourceSecurityGroupId: "sg-04c4fe3226f34a135"
+                SourceSecurityGroupOwnerId: !Ref AWS::AccountId
+                IpProtocol: "-1"
+              - 
+                SourceSecurityGroupId: !Ref EC2SecurityGroup2
+                SourceSecurityGroupOwnerId: !Ref AWS::AccountId
+                IpProtocol: "-1"
+              - 
+                SourceSecurityGroupId: !Ref EC2SecurityGroup3
+                SourceSecurityGroupOwnerId: !Ref AWS::AccountId
+                IpProtocol: "-1"
+              - 
+                CidrIp: "0.0.0.0/0"
+                FromPort: 31479
+                IpProtocol: "tcp"
+                ToPort: 31479
+            SecurityGroupEgress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                IpProtocol: "-1"
+
+    EC2SecurityGroup9:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-1 created 2023-01-02T18:21:51.531Z"
+            GroupName: "launch-wizard-1"
+            VpcId: "vpc-060012f0a42b5de5b"
+            SecurityGroupIngress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                FromPort: 8080
+                IpProtocol: "tcp"
+                ToPort: 8080
+              - 
+                CidrIp: "0.0.0.0/0"
+                FromPort: 22
+                IpProtocol: "tcp"
+                ToPort: 22
+            SecurityGroupEgress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                IpProtocol: "-1"
+
+    EC2SecurityGroup10:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-3 created 2023-01-07T15:07:24.874Z"
+            GroupName: "launch-wizard-3"
+            VpcId: "vpc-060012f0a42b5de5b"
+            SecurityGroupIngress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                FromPort: 80
+                IpProtocol: "tcp"
+                ToPort: 80
+              - 
+                CidrIp: "0.0.0.0/0"
+                FromPort: 22
+                IpProtocol: "tcp"
+                ToPort: 22
+            SecurityGroupEgress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                IpProtocol: "-1"
+
+    AutoScalingLaunchConfiguration:
+        Type: "AWS::AutoScaling::LaunchConfiguration"
+        Properties:
+            LaunchConfigurationName: !Sub "EC2ContainerService-${ECSCluster}-EcsInstanceLc-Z77lUJHVbYcI"
+            ImageId: "ami-0941a7859f46171d5"
+            KeyName: ""
+            SecurityGroups: 
+              - !Ref EC2SecurityGroup5
+            UserData: "IyEvYmluL2Jhc2gKZWNobyBFQ1NfQ0xVU1RFUj1mbGFzaC1jYXJkcyA+PiAvZXRjL2Vjcy9lY3MuY29uZmlnO2VjaG8gRUNTX0JBQ0tFTkRfSE9TVD0gPj4gL2V0Yy9lY3MvZWNzLmNvbmZpZzs="
+            InstanceType: "t2.medium"
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/xvda"
+                Ebs: 
+                    VolumeSize: 30
+                    VolumeType: "gp2"
+            InstanceMonitoring: true
+            IamInstanceProfile: !Sub "arn:aws:iam::${AWS::AccountId}:instance-profile/ecsInstanceRole"
+            EbsOptimized: false
+
+    EC2LaunchTemplate:
+        Type: "AWS::EC2::LaunchTemplate"
+        Properties:
+            LaunchTemplateName: "eks-3cc2c715-c871-cbff-710f-ebf8cdbe377d"
+            LaunchTemplateData: 
+                UserData: "TUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvbWl4ZWQ7IGJvdW5kYXJ5PSIvLyIKCi0tLy8KQ29udGVudC1UeXBlOiB0ZXh0L3gtc2hlbGxzY3JpcHQ7IGNoYXJzZXQ9InVzLWFzY2lpIgojIS9iaW4vYmFzaApzZXQgLWV4CkI2NF9DTFVTVEVSX0NBPUxTMHRMUzFDUlVkSlRpQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENrMUpTVU12YWtORFFXVmhaMEYzU1VKQlowbENRVVJCVGtKbmEzRm9hMmxIT1hjd1FrRlJjMFpCUkVGV1RWSk5kMFZSV1VSV1VWRkVSWGR3Y21SWFNtd0tZMjAxYkdSSFZucE5RalJZUkZSSmVrMUVSWGRPZWtsNFRWUm5lazlXYjFoRVZFMTZUVVJGZDA1RVNYaE5WR2Q2VDFadmQwWlVSVlJOUWtWSFFURlZSUXBCZUUxTFlUTldhVnBZU25WYVdGSnNZM3BEUTBGVFNYZEVVVmxLUzI5YVNXaDJZMDVCVVVWQ1FsRkJSR2RuUlZCQlJFTkRRVkZ2UTJkblJVSkJUVlpXQ21sSGJ6QjJSRkV3T0hCb1JVZHFjRm94Y2pCalJpdGFRVkJ1YTBZM1RsZ3hhVzlyY2sxTU1ucFpOV1pCTkVsUmNUZ3dlRTFOZUdKeVYybFBVakphVUdNS1UwNUNSemRhWlVnck1sRjVVMFp4VlhveldtZzRkVEUyZG5kQk4zQlVRMDVsUlZWa1dXNDJhbGxCTlRGa1duTmpVWFp5V2pWS1pYbDBSVnA1YWtSTFZncFlaRmQyVm1KVE9ESlVOMUJFVlU5a1IwUXlOWFpaWkhjeVNUa3ZOMWt2YzJkVFMzWlpXbEZ1U0ZKNE5VRm1kVEprVGpKeVlYRnJNV1pUVldGaFQwcG5DbkpYTjI0NWFtNXFjemROWW1OTUsxTTBPR1ZNWlROMk0yRkJWRTU2TjBONWNIRXZlRkV4U0VaSVRXZHlOMFZpYUhnd1IwNDJXR3QzVm04MmVFcGhVMHdLV25CeFJscGpNVVJMVjFaWVpYbGtXbUpHV1dkb2NpdHNOVWxFYm14QmIzUjNabWxXT0N0TlVqaHhkbGRGVVVKak5WWXJaMDh2V21WS1ptOU9WbFYzVEFvd1RVc3JVblExWjBadGJtNVhOMGxUTnpJd1EwRjNSVUZCWVU1YVRVWmpkMFJuV1VSV1VqQlFRVkZJTDBKQlVVUkJaMHRyVFVFNFIwRXhWV1JGZDBWQ0NpOTNVVVpOUVUxQ1FXWTRkMGhSV1VSV1VqQlBRa0paUlVaRVIxUnFOaTg1Y1U1a1ZEQkNkVWRFWVU1eU1GcEpkVFJpVldOTlFsVkhRVEZWWkVWUlVVOEtUVUY1UTBOdGRERlpiVlo1WW0xV01GcFlUWGRFVVZsS1MyOWFTV2gyWTA1QlVVVk1RbEZCUkdkblJVSkJTREV3ZDBWUVMyWkVSRTVQUTBkdE9HNXFSZ3ByZGpneWRTdGhSbFJYWTFsSFIzUkpabVZ6WnpsdGVGTXJRblJSTm5oSk9VODNRVUZqTTFCM1VXeHJZa1U0Tm1aWGVsQmpWVWxtSzBnNGRrd3pRMnByQ20xTE5USlJOVmRaVUhwRFMydG1UbnB4WW1aUlJuVTRlWE5qUkd0NVlteHdOazVwVlRWMVMwbDFObkppTlUxVlNXTndSMUV5Y0VkaE1rZHZVbVJGWlVRS0syUnRjakJ6Ym1sSlNXMXdkSFZPUkdKVFJrcHNRVWhGSzJabmJsWXdlbWxHZFZJemFtVnlUbFpIWTBsdUwwOVZOVWt3YzJGeFRtcHFVM1JCVEUxeVN3bzJTWGRETnpoelZEVndUVGhYWWprclVURXZlbWx5Y0hweFRUY3dWR1Z4U1RCME1HUkhjVEl5VVhCR1psTnBWRmh2WTNWTE5HdHFOVFIzWTJ0RmN6aHBDblJZZVZKNVJ6UklMeXRwT0RGMlNVcHFUelZQZG1odU5HczBSR1pSUVhjNFJqVlRWMGgwZFdwakwwcG5hM3BLVG1oWFptc3phWGhEYURSQ1lWQlFiRkFLWmtFNFBRb3RMUzB0TFVWT1JDQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENnPT0KQVBJX1NFUlZFUl9VUkw9aHR0cHM6Ly84RTQyM0UyMzIyMzA0NzA5NjYxMkMzNzEzNTdBQzlCRS5ncjcudXMtd2VzdC0yLmVrcy5hbWF6b25hd3MuY29tCks4U19DTFVTVEVSX0ROU19JUD0xMC4xMDAuMC4xMAovZXRjL2Vrcy9ib290c3RyYXAuc2ggZWtzLWNsdXN0ZXIgLS1rdWJlbGV0LWV4dHJhLWFyZ3MgJy0tbm9kZS1sYWJlbHM9ZWtzLmFtYXpvbmF3cy5jb20vbm9kZWdyb3VwLWltYWdlPWFtaS0wYjE0OWI0YzY4YWI2OWRjZSxla3MuYW1hem9uYXdzLmNvbS9jYXBhY2l0eVR5cGU9T05fREVNQU5ELGVrcy5hbWF6b25hd3MuY29tL25vZGVncm91cD1la3Mtd29ya2VyLW5vZGUtZ3JvdXAgLS1tYXgtcG9kcz0xNycgLS1iNjQtY2x1c3Rlci1jYSAkQjY0X0NMVVNURVJfQ0EgLS1hcGlzZXJ2ZXItZW5kcG9pbnQgJEFQSV9TRVJWRVJfVVJMIC0tZG5zLWNsdXN0ZXItaXAgJEs4U19DTFVTVEVSX0ROU19JUCAtLXVzZS1tYXgtcG9kcyBmYWxzZQoKLS0vLy0t"
+                BlockDeviceMappings: 
+                  - 
+                    DeviceName: "/dev/xvda"
+                    Ebs: 
+                        DeleteOnTermination: true
+                        VolumeSize: 20
+                        VolumeType: "gp2"
+                IamInstanceProfile: 
+                    Name: "eks-3cc2c715-c871-cbff-710f-ebf8cdbe377d"
+                KeyName: "keypair"
+                NetworkInterfaces: 
+                  - 
+                    DeviceIndex: 0
+                    Groups: 
+                      - !Ref EC2SecurityGroup8
+                      - !Ref EC2SecurityGroup6
+                ImageId: "ami-0b149b4c68ab69dce"
+                InstanceType: "t3.medium"
+                MetadataOptions: 
+                    HttpPutResponseHopLimit: 2
+
+    EC2LaunchTemplate2:
+        Type: "AWS::EC2::LaunchTemplate"
+        Properties:
+            LaunchTemplateName: !Sub "${ECSService.Name}-LaunchTemp"
+            LaunchTemplateData: 
+                TagSpecifications: 
+                  - 
+                    ResourceType: "instance"
+                    Tags: 
+                      - 
+                        Key: "Project"
+                        Value: !GetAtt ECSService.Name
+                UserData: "IyEvYmluL2Jhc2gKeXVtIHVwZGF0ZSAteQp5dW0gaW5zdGFsbCBodHRwZCAteQpzeXN0ZW1jdGwgc3RhcnQgaHR0cGQuc2VydmljZQpzeXN0ZW1jdGwgc3RhdHVzIGh0dHBkLnNlcnZpY2UKY2QgL3Zhci93d3cvaHRtbAphd3MgczMgY3AgczM6Ly9wcm9kLWJ1Y2tldC10ZWFtMS9GbGFzaENhcmRzL2luZGV4Lmh0bWwgLgpta2RpciBjc3MKY2QgY3NzCmF3cyBzMyBjcCBzMzovL3Byb2QtYnVja2V0LXRlYW0xL0ZsYXNoQ2FyZHMvY3NzL3N0eWxlLmNzcyAuCgo="
+                IamInstanceProfile: 
+                    Arn: !Sub "arn:aws:iam::${AWS::AccountId}:instance-profile/${ECSService.Name}-EC2-S3-Role"
+                KeyName: !Sub "${ECSService.Name}-KP"
+                NetworkInterfaces: 
+                  - 
+                    DeviceIndex: 0
+                    Groups: 
+                      - !Sub "${ElasticLoadBalancingV2LoadBalancer.SecurityGroups}"
+                ImageId: "ami-0ceecbb0f30a902a6"
+                InstanceType: "t1.micro"
+
+    ElasticLoadBalancingV2TargetGroup:
+        Type: "AWS::ElasticLoadBalancingV2::TargetGroup"
+        Properties:
+            HealthCheckIntervalSeconds: 30
+            HealthCheckPath: "/"
+            Port: 80
+            Protocol: "HTTP"
+            HealthCheckPort: "traffic-port"
+            HealthCheckProtocol: "HTTP"
+            HealthCheckTimeoutSeconds: 5
+            UnhealthyThresholdCount: 2
+            TargetType: "instance"
+            Matcher: 
+                HttpCode: "200"
+            HealthyThresholdCount: 5
+            VpcId: !Ref EC2VPC3
+            Name: !Sub "${ECSService.Name}-TG-Instance"
+            HealthCheckEnabled: true
+            TargetGroupAttributes: 
+              - 
+                Key: "target_group_health.unhealthy_state_routing.minimum_healthy_targets.count"
+                Value: "1"
+              - 
+                Key: "stickiness.enabled"
+                Value: "false"
+              - 
+                Key: "target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage"
+                Value: "off"
+              - 
+                Key: "deregistration_delay.timeout_seconds"
+                Value: "300"
+              - 
+                Key: "target_group_health.dns_failover.minimum_healthy_targets.count"
+                Value: "1"
+              - 
+                Key: "stickiness.app_cookie.cookie_name"
+                Value: ""
+              - 
+                Key: "stickiness.type"
+                Value: "lb_cookie"
+              - 
+                Key: "stickiness.lb_cookie.duration_seconds"
+                Value: "86400"
+              - 
+                Key: "slow_start.duration_seconds"
+                Value: "0"
+              - 
+                Key: "stickiness.app_cookie.duration_seconds"
+                Value: "86400"
+              - 
+                Key: "target_group_health.dns_failover.minimum_healthy_targets.percentage"
+                Value: "off"
+              - 
+                Key: "load_balancing.cross_zone.enabled"
+                Value: "use_load_balancer_configuration"
+              - 
+                Key: "load_balancing.algorithm.type"
+                Value: "round_robin"
+
+    ElasticLoadBalancingV2TargetGroup2:
+        Type: "AWS::ElasticLoadBalancingV2::TargetGroup"
+        Properties:
+            HealthCheckIntervalSeconds: 30
+            HealthCheckPath: "/"
+            Port: 80
+            Protocol: "HTTP"
+            HealthCheckPort: "traffic-port"
+            HealthCheckProtocol: "HTTP"
+            HealthCheckTimeoutSeconds: 5
+            UnhealthyThresholdCount: 2
+            TargetType: "ip"
+            Matcher: 
+                HttpCode: "200"
+            HealthyThresholdCount: 5
+            VpcId: !Ref EC2VPC3
+            Name: !Sub "${ECSService.Name}-ECS-Service"
+            HealthCheckEnabled: true
+            TargetGroupAttributes: 
+              - 
+                Key: "target_group_health.unhealthy_state_routing.minimum_healthy_targets.count"
+                Value: "1"
+              - 
+                Key: "stickiness.enabled"
+                Value: "false"
+              - 
+                Key: "target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage"
+                Value: "off"
+              - 
+                Key: "deregistration_delay.timeout_seconds"
+                Value: "300"
+              - 
+                Key: "target_group_health.dns_failover.minimum_healthy_targets.count"
+                Value: "1"
+              - 
+                Key: "stickiness.app_cookie.cookie_name"
+                Value: ""
+              - 
+                Key: "stickiness.type"
+                Value: "lb_cookie"
+              - 
+                Key: "stickiness.lb_cookie.duration_seconds"
+                Value: "86400"
+              - 
+                Key: "slow_start.duration_seconds"
+                Value: "0"
+              - 
+                Key: "stickiness.app_cookie.duration_seconds"
+                Value: "86400"
+              - 
+                Key: "target_group_health.dns_failover.minimum_healthy_targets.percentage"
+                Value: "off"
+              - 
+                Key: "load_balancing.cross_zone.enabled"
+                Value: "use_load_balancer_configuration"
+              - 
+                Key: "load_balancing.algorithm.type"
+                Value: "round_robin"
+
+    EC2Volume:
+        Type: "AWS::EC2::Volume"
+        Properties:
+            AvailabilityZone: !GetAtt EC2Instance3.AvailabilityZone
+            Encrypted: false
+            Size: 20
+            VolumeType: "gp2"
+            SnapshotId: "snap-00fa56cc077067d6f"
+            MultiAttachEnabled: false
+
+    EC2Volume2:
+        Type: "AWS::EC2::Volume"
+        Properties:
+            AvailabilityZone: !GetAtt EC2Instance3.AvailabilityZone
+            Encrypted: false
+            Size: 30
+            VolumeType: "gp2"
+            SnapshotId: "snap-08e2a0765c31d015b"
+            MultiAttachEnabled: false
+
+    EC2Volume3:
+        Type: "AWS::EC2::Volume"
+        Properties:
+            AvailabilityZone: !GetAtt EC2Instance.AvailabilityZone
+            Encrypted: false
+            Size: 20
+            VolumeType: "gp2"
+            SnapshotId: "snap-00fa56cc077067d6f"
+            MultiAttachEnabled: false
+
+    EC2Volume4:
+        Type: "AWS::EC2::Volume"
+        Properties:
+            AvailabilityZone: !GetAtt EC2Instance.AvailabilityZone
+            Encrypted: false
+            Size: 30
+            VolumeType: "gp2"
+            SnapshotId: "snap-08e2a0765c31d015b"
+            MultiAttachEnabled: false
+
+    EC2VolumeAttachment:
+        Type: "AWS::EC2::VolumeAttachment"
+        Properties:
+            VolumeId: !Ref EC2Volume
+            InstanceId: !Ref EC2Instance3
+            Device: "/dev/xvda"
+
+    EC2VolumeAttachment2:
+        Type: "AWS::EC2::VolumeAttachment"
+        Properties:
+            VolumeId: !Ref EC2Volume2
+            InstanceId: !Ref EC2Instance4
+            Device: "/dev/xvda"
+
+    EC2VolumeAttachment3:
+        Type: "AWS::EC2::VolumeAttachment"
+        Properties:
+            VolumeId: !Ref EC2Volume3
+            InstanceId: !Ref EC2Instance
+            Device: "/dev/xvda"
+
+    EC2VolumeAttachment4:
+        Type: "AWS::EC2::VolumeAttachment"
+        Properties:
+            VolumeId: !Ref EC2Volume4
+            InstanceId: !Ref EC2Instance2
+            Device: "/dev/xvda"
+
+    EC2NetworkInterface:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: "ELB acce836c505924dd4a0aadbc892c6f72"
+            PrivateIpAddress: "192.168.22.47"
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: "192.168.22.47"
+                Primary: true
+            SubnetId: !Ref EC2Subnet
+            SourceDestCheck: true
+            GroupSet: 
+              - !Ref EC2SecurityGroup2
+
+    EC2NetworkInterface2:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: !Sub "ELB app/${ElasticLoadBalancingV2LoadBalancer.LoadBalancerName}-Instance/a39dc6865ca2f1d0"
+            PrivateIpAddress: "10.1.14.32"
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: "10.1.14.32"
+                Primary: true
+            SubnetId: !Ref EC2Subnet2
+            SourceDestCheck: true
+            GroupSet: 
+              - !Sub "${ElasticLoadBalancingV2LoadBalancer.SecurityGroups}"
+
+    EC2NetworkInterface3:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: ""
+            PrivateIpAddress: !GetAtt EC2Instance4.PrivateIp
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: !GetAtt EC2Instance4.PrivateIp
+                Primary: true
+            SubnetId: !Ref EC2Subnet5
+            SourceDestCheck: true
+            GroupSet: 
+              - !Ref EC2SecurityGroup5
+
+    EC2NetworkInterface4:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: "Amazon EKS eks-cluster"
+            PrivateIpAddress: "192.168.177.54"
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: "192.168.177.54"
+                Primary: true
+            SubnetId: !Ref EC2Subnet7
+            SourceDestCheck: true
+            GroupSet: 
+              - !Ref EC2SecurityGroup
+              - !Ref EC2SecurityGroup8
+
+    EC2NetworkInterface5:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: ""
+            PrivateIpAddress: !GetAtt EC2Instance3.PrivateIp
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: !GetAtt EC2Instance3.PrivateIp
+                Primary: true
+              - 
+                PrivateIpAddress: "192.168.45.62"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.56.177"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.47.50"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.6.199"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.36.39"
+                Primary: false
+            SubnetId: !Ref EC2Subnet
+            SourceDestCheck: true
+            Tags: 
+              - 
+                Key: "node.k8s.amazonaws.com/instance_id"
+                Value: !Ref EC2Instance3
+              - 
+                Key: "cluster.k8s.amazonaws.com/name"
+                Value: "eks-cluster"
+            GroupSet: 
+              - !Ref EC2SecurityGroup6
+              - !Ref EC2SecurityGroup8
+
+    EC2NetworkInterface6:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: !Sub "ELB app/${ElasticLoadBalancingV2LoadBalancer.LoadBalancerName}/173fa431735aa899"
+            PrivateIpAddress: "10.1.8.185"
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: "10.1.8.185"
+                Primary: true
+            SubnetId: !Ref EC2Subnet2
+            SourceDestCheck: true
+            GroupSet: 
+              - !Sub "${ElasticLoadBalancingV2LoadBalancer.SecurityGroups}"
+
+    EC2NetworkInterface7:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: "ELB ae7a05b2623724204bb1f656cc3b9b23"
+            PrivateIpAddress: "192.168.55.248"
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: "192.168.55.248"
+                Primary: true
+            SubnetId: !Ref EC2Subnet
+            SourceDestCheck: true
+            GroupSet: 
+              - !Ref EC2SecurityGroup3
+
+    EC2NetworkInterface8:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: !Sub "aws-K8S-${EC2Instance3}"
+            PrivateIpAddress: "192.168.40.90"
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: "192.168.40.90"
+                Primary: true
+              - 
+                PrivateIpAddress: "192.168.12.217"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.37.124"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.45.130"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.17.162"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.42.183"
+                Primary: false
+            SubnetId: !Ref EC2Subnet
+            SourceDestCheck: true
+            Tags: 
+              - 
+                Key: "node.k8s.amazonaws.com/instance_id"
+                Value: !Ref EC2Instance3
+              - 
+                Key: "cluster.k8s.amazonaws.com/name"
+                Value: "eks-cluster"
+              - 
+                Key: "node.k8s.amazonaws.com/createdAt"
+                Value: "2023-01-07T21:39:15Z"
+            GroupSet: 
+              - !Ref EC2SecurityGroup6
+              - !Ref EC2SecurityGroup8
+
+    EC2NetworkInterface9:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: !Sub "Interface for NAT Gateway ${EC2NatGateway2}"
+            PrivateIpAddress: "192.168.47.79"
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: "192.168.47.79"
+                Primary: true
+            SubnetId: !Ref EC2Subnet
+            SourceDestCheck: false
+
+    EC2NetworkInterface10:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: "ELB ae7a05b2623724204bb1f656cc3b9b23"
+            PrivateIpAddress: "192.168.105.226"
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: "192.168.105.226"
+                Primary: true
+            SubnetId: !Ref EC2Subnet4
+            SourceDestCheck: true
+            GroupSet: 
+              - !Ref EC2SecurityGroup3
+
+    EC2NetworkInterface11:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: ""
+            PrivateIpAddress: !GetAtt EC2Instance.PrivateIp
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: !GetAtt EC2Instance.PrivateIp
+                Primary: true
+              - 
+                PrivateIpAddress: "192.168.104.24"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.85.9"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.81.139"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.122.245"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.118.71"
+                Primary: false
+            SubnetId: !Ref EC2Subnet4
+            SourceDestCheck: true
+            Tags: 
+              - 
+                Key: "node.k8s.amazonaws.com/instance_id"
+                Value: !Ref EC2Instance
+              - 
+                Key: "cluster.k8s.amazonaws.com/name"
+                Value: "eks-cluster"
+            GroupSet: 
+              - !Ref EC2SecurityGroup6
+              - !Ref EC2SecurityGroup8
+
+    EC2NetworkInterface12:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: "ELB acce836c505924dd4a0aadbc892c6f72"
+            PrivateIpAddress: "192.168.72.146"
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: "192.168.72.146"
+                Primary: true
+            SubnetId: !Ref EC2Subnet4
+            SourceDestCheck: true
+            GroupSet: 
+              - !Ref EC2SecurityGroup2
+
+    EC2NetworkInterface13:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: ""
+            PrivateIpAddress: !GetAtt EC2Instance2.PrivateIp
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: !GetAtt EC2Instance2.PrivateIp
+                Primary: true
+            SubnetId: !Ref EC2Subnet3
+            SourceDestCheck: true
+            GroupSet: 
+              - !Ref EC2SecurityGroup5
+
+    EC2NetworkInterface14:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: !Sub "aws-K8S-${EC2Instance}"
+            PrivateIpAddress: "192.168.76.97"
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: "192.168.76.97"
+                Primary: true
+              - 
+                PrivateIpAddress: "192.168.89.188"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.70.220"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.67.81"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.115.197"
+                Primary: false
+              - 
+                PrivateIpAddress: "192.168.110.215"
+                Primary: false
+            SubnetId: !Ref EC2Subnet4
+            SourceDestCheck: true
+            Tags: 
+              - 
+                Key: "cluster.k8s.amazonaws.com/name"
+                Value: "eks-cluster"
+              - 
+                Key: "node.k8s.amazonaws.com/createdAt"
+                Value: "2023-01-11T14:32:01Z"
+              - 
+                Key: "node.k8s.amazonaws.com/instance_id"
+                Value: !Ref EC2Instance
+            GroupSet: 
+              - !Ref EC2SecurityGroup6
+              - !Ref EC2SecurityGroup8
+
+    EC2NetworkInterface15:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: !Sub "Interface for NAT Gateway ${EC2NatGateway}"
+            PrivateIpAddress: "192.168.86.45"
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: "192.168.86.45"
+                Primary: true
+            SubnetId: !Ref EC2Subnet4
+            SourceDestCheck: false
+
+    EC2NetworkInterface16:
+        Type: "AWS::EC2::NetworkInterface"
+        Properties:
+            Description: "Amazon EKS eks-cluster"
+            PrivateIpAddress: "192.168.221.169"
+            PrivateIpAddresses: 
+              - 
+                PrivateIpAddress: "192.168.221.169"
+                Primary: true
+            SubnetId: !Ref EC2Subnet6
+            SourceDestCheck: true
+            GroupSet: 
+              - !Ref EC2SecurityGroup
+              - !Ref EC2SecurityGroup8
+
+    EC2NetworkInterfaceAttachment:
+        Type: "AWS::EC2::NetworkInterfaceAttachment"
+        Properties:
+            NetworkInterfaceId: "eni-0bcd98aa982c52586"
+            DeviceIndex: 0
+            InstanceId: !Ref EC2Instance4
+            DeleteOnTermination: true
+
+    EC2NetworkInterfaceAttachment2:
+        Type: "AWS::EC2::NetworkInterfaceAttachment"
+        Properties:
+            NetworkInterfaceId: "eni-0e39e297cbf22eeb9"
+            DeviceIndex: 0
+            InstanceId: !Ref EC2Instance3
+            DeleteOnTermination: true
+
+    EC2NetworkInterfaceAttachment3:
+        Type: "AWS::EC2::NetworkInterfaceAttachment"
+        Properties:
+            NetworkInterfaceId: "eni-0e7fa469b9aa21182"
+            DeviceIndex: 1
+            InstanceId: !Ref EC2Instance3
+            DeleteOnTermination: true
+
+    EC2NetworkInterfaceAttachment4:
+        Type: "AWS::EC2::NetworkInterfaceAttachment"
+        Properties:
+            NetworkInterfaceId: "eni-0843b48a5cc24f2a1"
+            DeviceIndex: 0
+            InstanceId: !Ref EC2Instance
+            DeleteOnTermination: true
+
+    EC2NetworkInterfaceAttachment5:
+        Type: "AWS::EC2::NetworkInterfaceAttachment"
+        Properties:
+            NetworkInterfaceId: "eni-0578dd005a9500ad8"
+            DeviceIndex: 0
+            InstanceId: !Ref EC2Instance2
+            DeleteOnTermination: true
+
+    EC2NetworkInterfaceAttachment6:
+        Type: "AWS::EC2::NetworkInterfaceAttachment"
+        Properties:
+            NetworkInterfaceId: "eni-07f094621bd5a3eda"
+            DeviceIndex: 1
+            InstanceId: !Ref EC2Instance
+            DeleteOnTermination: true
+
+    EC2NetworkInterfacePermission:
+        Type: "AWS::EC2::NetworkInterfacePermission"
+        Properties:
+            AwsAccountId: "780477142109"
+            NetworkInterfaceId: "eni-0a531352684b43f8b"
+            Permission: "INSTANCE-ATTACH"
+
+    EC2NetworkInterfacePermission2:
+        Type: "AWS::EC2::NetworkInterfacePermission"
+        Properties:
+            AwsAccountId: "780477142109"
+            NetworkInterfaceId: "eni-0d318cf5fe7bc935f"
+            Permission: "INSTANCE-ATTACH"
+
+    LambdaFunction:
+        Type: "AWS::Lambda::Function"
+        Properties:
+            Description: "An Amazon S3 trigger that retrieves metadata for the object that has been updated."
+            FunctionName: "lambda-s3-function"
+            Handler: "index.handler"
+            Architectures: 
+              - "x86_64"
+            Code: 
+                S3Bucket: !Sub "awslambda-${AWS::Region}-tasks"
+                S3Key: !Sub "/snapshots/${AWS::AccountId}/lambda-s3-function-ef165a98-064b-429d-84a6-a7b93f16ab41"
+                S3ObjectVersion: "bBrg1DYVFbbndzIDp4infKkSnseCB6TG"
+            MemorySize: 128
+            Role: !Sub "arn:aws:iam::${AWS::AccountId}:role/service-role/lambda-s3-function-role"
+            Runtime: "nodejs14.x"
+            Timeout: 3
+            TracingConfig: 
+                Mode: "PassThrough"
+            EphemeralStorage: 
+                Size: 512
+            Tags: 
+              - 
+                Key: "lambda-console:blueprint"
+                Value: "s3-get-object"
+
+    LambdaFunction2:
+        Type: "AWS::Lambda::Function"
+        Properties:
+            Description: ""
+            FunctionName: !Sub "${ECSService.Name}-Lambda-Deploy"
+            Handler: "lambda_function.lambda_handler"
+            Architectures: 
+              - "x86_64"
+            Code: 
+                S3Bucket: !Sub "awslambda-${AWS::Region}-tasks"
+                S3Key: !Sub "/snapshots/${AWS::AccountId}/${ECSService.Name}-Lambda-Deploy-bb9cb19f-c855-4e57-9b49-94bde3295414"
+                S3ObjectVersion: "FB30R9Jpeotuok5z9UyB9DJeHYFn0b3U"
+            MemorySize: 128
+            Role: !Sub "arn:aws:iam::${AWS::AccountId}:role/service-role/${ECSService.Name}-Lambda-Deploy-role-f3wvciqr"
+            Runtime: "python3.9"
+            Timeout: 3
+            TracingConfig: 
+                Mode: "PassThrough"
+            EphemeralStorage: 
+                Size: 512
+
+    LambdaVersion:
+        Type: "AWS::Lambda::Version"
+        Properties:
+            Description: "An Amazon S3 trigger that retrieves metadata for the object that has been updated."
+            FunctionName: !Ref LambdaFunction
+
+    LambdaPermission:
+        Type: "AWS::Lambda::Permission"
+        Properties:
+            Action: "lambda:InvokeFunction"
+            FunctionName: !GetAtt LambdaFunction.Arn
+            Principal: "sns.amazonaws.com"
+            SourceArn: !Sub "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:codestar-notifications-EKS"
+
+    LambdaPermission2:
+        Type: "AWS::Lambda::Permission"
+        Properties:
+            Action: "lambda:InvokeFunction"
+            FunctionName: !GetAtt LambdaFunction2.Arn
+            Principal: "sns.amazonaws.com"
+            SourceArn: !Sub "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:codestar-notifications-${ECSService.Name}"
+
+    ECRRepository:
+        Type: "AWS::ECR::Repository"
+        Properties:
+            RepositoryName: "nginx"
+            LifecyclePolicy: 
+                RegistryId: !Ref AWS::AccountId
+
+    ECRRepository2:
+        Type: "AWS::ECR::Repository"
+        Properties:
+            RepositoryName: "flashcards"
+            LifecyclePolicy: 
+                RegistryId: !Ref AWS::AccountId
+
+    ECSCluster:
+        Type: "AWS::ECS::Cluster"
+        Properties:
+            ClusterName: "flash-cards"
+
+    ECSService:
+        Type: "AWS::ECS::Service"
+        Properties:
+            ServiceName: "FlashCards"
+            Cluster: !GetAtt ECSCluster.Arn
+            DesiredCount: 1
+            LaunchType: "EC2"
+            TaskDefinition: !Ref ECSTaskDefinition2
+            DeploymentConfiguration: 
+                MaximumPercent: 200
+                MinimumHealthyPercent: 100
+                DeploymentCircuitBreaker: 
+                    Enable: false
+                    Rollback: false
+            PlacementStrategies: 
+              - 
+                Type: "spread"
+                Field: "attribute:ecs.availability-zone"
+              - 
+                Type: "spread"
+                Field: "instanceId"
+            SchedulingStrategy: "REPLICA"
+            DeploymentController: 
+                Type: "ECS"
+
+    ECSTaskDefinition:
+        Type: "AWS::ECS::TaskDefinition"
+        Properties:
+            ContainerDefinitions: 
+              - 
+                Essential: true
+                Image: !Sub "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/flashcards:latest"
+                Memory: 128
+                Name: !Sub "node-${ECSCluster}"
+                PortMappings: 
+                  - 
+                    ContainerPort: 80
+                    HostPort: 80
+                    Protocol: "tcp"
+            Family: !Sub "node_${ECSCluster}"
+            RequiresCompatibilities: 
+              - "EC2"
+
+    ECSTaskDefinition2:
+        Type: "AWS::ECS::TaskDefinition"
+        Properties:
+            ContainerDefinitions: 
+              - 
+                Essential: true
+                Image: !Sub "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/flashcards"
+                Memory: 128
+                Name: "FlashCards"
+                PortMappings: 
+                  - 
+                    ContainerPort: 80
+                    HostPort: 80
+                    Protocol: "tcp"
+            Family: "FlashCards"
+            TaskRoleArn: !Sub "arn:aws:iam::${AWS::AccountId}:role/FlashCards-IAM-ECSTaskRols"
+            ExecutionRoleArn: !Sub "arn:aws:iam::${AWS::AccountId}:role/FlashCards-IAM-ECSTaskRols"
+            RequiresCompatibilities: 
+              - "EC2"
+
+    ECSTaskDefinition3:
+        Type: "AWS::ECS::TaskDefinition"
+        Properties:
+            ContainerDefinitions: 
+              - 
+                Essential: true
+                Image: !Sub "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/flashcards:latest"
+                LogConfiguration: 
+                    LogDriver: "awslogs"
+                    Options: 
+                        awslogs-group: !Sub "/ecs/${ECSService.Name}-ECS-Task"
+                        awslogs-region: !Ref AWS::Region
+                        awslogs-stream-prefix: "ecs"
+                MemoryReservation: 128
+                Name: !Sub "${ECSService.Name}-ECR-CNR"
+                PortMappings: 
+                  - 
+                    ContainerPort: 80
+                    HostPort: 80
+                    Protocol: "tcp"
+            Family: !Sub "${ECSService.Name}-ECS-Task"
+            TaskRoleArn: !Sub "arn:aws:iam::${AWS::AccountId}:role/${ECSService.Name}-IAM-ECSTaskRols"
+            ExecutionRoleArn: !Sub "arn:aws:iam::${AWS::AccountId}:role/${ECSService.Name}-IAM-ECSTaskRols"
+            NetworkMode: "awsvpc"
+            RequiresCompatibilities: 
+              - "FARGATE"
+            Cpu: "256"
+            Memory: "512"
+
+    EKSCluster:
+        Type: "AWS::EKS::Cluster"
+        Properties:
+            Name: "eks-cluster"
+            RoleArn: !Sub "arn:aws:iam::${AWS::AccountId}:role/eks-cluster-role"
+            Version: "1.24"
+            ResourcesVpcConfig: 
+                SecurityGroupIds: 
+                  - !Ref EC2SecurityGroup
+                SubnetIds: 
+                  - !Ref EC2Subnet
+                  - !Ref EC2Subnet4
+                  - !Ref EC2Subnet6
+                  - !Ref EC2Subnet7
+            KubernetesNetworkConfig: 
+                ServiceIpv4Cidr: "10.100.0.0/16"
+
+    EKSNodegroup:
+        Type: "AWS::EKS::Nodegroup"
+        Properties:
+            NodegroupName: "eks-worker-node-group"
+            ClusterName: "eks-cluster"
+            Version: "1.24"
+            ReleaseVersion: "1.24.7-20221222"
+            ScalingConfig: 
+                MinSize: 1
+                MaxSize: 2
+                DesiredSize: 2
+            InstanceTypes: 
+              - "t3.medium"
+            Subnets: 
+              - !Ref EC2Subnet
+              - !Ref EC2Subnet4
+              - !Ref EC2Subnet6
+              - !Ref EC2Subnet7
+            RemoteAccess: 
+                Ec2SshKey: "keypair"
+                SourceSecurityGroups: 
+                  - !Ref EC2SecurityGroup8
+            AmiType: "AL2_x86_64"
+            NodeRole: !Sub "arn:aws:iam::${AWS::AccountId}:role/eks-worker-node-role"
+            Labels: {}
+            DiskSize: 20
+            Tags: {}
+            CapacityType: "ON_DEMAND"
+
+    EKSAddon:
+        Type: "AWS::EKS::Addon"
+        Properties:
+            AddonName: "kube-proxy"
+            AddonVersion: "v1.24.7-eksbuild.2"
+            ClusterName: "eks-cluster"
+
+    EKSAddon2:
+        Type: "AWS::EKS::Addon"
+        Properties:
+            AddonName: "vpc-cni"
+            AddonVersion: "v1.11.4-eksbuild.1"
+            ClusterName: "eks-cluster"
+
+    EKSAddon3:
+        Type: "AWS::EKS::Addon"
+        Properties:
+            AddonName: "coredns"
+            AddonVersion: "v1.8.7-eksbuild.3"
+            ClusterName: "eks-cluster"
+
+    EC2VPC:
+        Type: "AWS::EC2::VPC"
+        Properties:
+            CidrBlock: "192.168.0.0/16"
+            EnableDnsSupport: true
+            EnableDnsHostnames: true
+            InstanceTenancy: "default"
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "eks-vpc-VPC"
+
+    EC2VPC2:
+        Type: "AWS::EC2::VPC"
+        Properties:
+            CidrBlock: "10.0.0.0/16"
+            EnableDnsSupport: true
+            EnableDnsHostnames: true
+            InstanceTenancy: "default"
+
+    EC2VPC3:
+        Type: "AWS::EC2::VPC"
+        Properties:
+            CidrBlock: "10.1.0.0/16"
+            EnableDnsSupport: true
+            EnableDnsHostnames: true
+            InstanceTenancy: "default"
+            Tags: 
+              - 
+                Key: "Name"
+                Value: !Sub "${ECSService.Name}-vpc"
+
+    EC2Subnet:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            AvailabilityZone: !GetAtt EC2Subnet2.AvailabilityZone
+            CidrBlock: "192.168.0.0/18"
+            VpcId: !Ref EC2VPC
+            MapPublicIpOnLaunch: true
+            Tags: 
+              - 
+                Key: "kubernetes.io/role/elb"
+                Value: "1"
+              - 
+                Key: "Name"
+                Value: "eks-vpc-PublicSubnet01"
+
+    EC2Subnet2:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            AvailabilityZone: !GetAtt EC2Subnet5.AvailabilityZone
+            CidrBlock: "10.1.0.0/20"
+            VpcId: !Ref EC2VPC3
+            MapPublicIpOnLaunch: false
+            Tags: 
+              - 
+                Key: "Name"
+                Value: !Sub "${ECSService.Name}-subnet-public1-${EC2Subnet5.AvailabilityZone}"
+
+    EC2Subnet3:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            AvailabilityZone: !GetAtt EC2Subnet4.AvailabilityZone
+            CidrBlock: "10.0.1.0/24"
+            VpcId: !Ref EC2VPC2
+            MapPublicIpOnLaunch: true
+
+    EC2Subnet4:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            AvailabilityZone: !GetAtt EC2Subnet6.AvailabilityZone
+            CidrBlock: "192.168.64.0/18"
+            VpcId: !Ref EC2VPC
+            MapPublicIpOnLaunch: true
+            Tags: 
+              - 
+                Key: "kubernetes.io/role/elb"
+                Value: "1"
+              - 
+                Key: "Name"
+                Value: "eks-vpc-PublicSubnet02"
+
+    EC2Subnet5:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            AvailabilityZone: !GetAtt EC2Subnet7.AvailabilityZone
+            CidrBlock: "10.0.0.0/24"
+            VpcId: !Ref EC2VPC2
+            MapPublicIpOnLaunch: true
+
+    EC2Subnet6:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            AvailabilityZone: !GetAtt EC2Subnet8.AvailabilityZone
+            CidrBlock: "192.168.192.0/18"
+            VpcId: !Ref EC2VPC
+            MapPublicIpOnLaunch: false
+            Tags: 
+              - 
+                Key: "kubernetes.io/role/internal-elb"
+                Value: "1"
+              - 
+                Key: "Name"
+                Value: "eks-vpc-PrivateSubnet02"
+
+    EC2Subnet7:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            AvailabilityZone: !Sub "${AWS::Region}a"
+            CidrBlock: "192.168.128.0/18"
+            VpcId: !Ref EC2VPC
+            MapPublicIpOnLaunch: false
+            Tags: 
+              - 
+                Key: "kubernetes.io/role/internal-elb"
+                Value: "1"
+              - 
+                Key: "Name"
+                Value: "eks-vpc-PrivateSubnet01"
+
+    EC2Subnet8:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            AvailabilityZone: !Sub "${AWS::Region}b"
+            CidrBlock: "10.1.16.0/20"
+            VpcId: !Ref EC2VPC3
+            MapPublicIpOnLaunch: false
+            Tags: 
+              - 
+                Key: "Name"
+                Value: !Sub "${ECSService.Name}-subnet-public2-${AWS::Region}b"
+
+    EC2InternetGateway:
+        Type: "AWS::EC2::InternetGateway"
+
+    EC2InternetGateway2:
+        Type: "AWS::EC2::InternetGateway"
+        Properties:
+            Tags: 
+              - 
+                Key: "Name"
+                Value: !Sub "${ECSService.Name}-igw"
+
+    EC2InternetGateway3:
+        Type: "AWS::EC2::InternetGateway"
+
+    EC2EIP:
+        Type: "AWS::EC2::EIP"
+        Properties:
+            Domain: "vpc"
+
+    EC2EIPAssociation:
+        Type: "AWS::EC2::EIPAssociation"
+        Properties:
+            AllocationId: !GetAtt EC2EIP.AllocationId
+            NetworkInterfaceId: "eni-0ccecf0a1ed9b40b6"
+            PrivateIpAddress: "192.168.86.45"
+
+    EC2EIP2:
+        Type: "AWS::EC2::EIP"
+        Properties:
+            Domain: "vpc"
+
+    EC2EIPAssociation2:
+        Type: "AWS::EC2::EIPAssociation"
+        Properties:
+            AllocationId: !GetAtt EC2EIP2.AllocationId
+            NetworkInterfaceId: "eni-0ea0ac7634be912c6"
+            PrivateIpAddress: "192.168.47.79"
+
+    EC2DHCPOptions:
+        Type: "AWS::EC2::DHCPOptions"
+        Properties:
+            DomainName: !Sub "${AWS::Region}.compute.internal"
+
+    EC2VPCDHCPOptionsAssociation:
+        Type: "AWS::EC2::VPCDHCPOptionsAssociation"
+        Properties:
+            DhcpOptionsId: !Ref EC2DHCPOptions
+            VpcId: !Ref EC2VPC
+
+    EC2RouteTable:
+        Type: "AWS::EC2::RouteTable"
+        Properties:
+            VpcId: !Ref EC2VPC3
+            Tags: 
+              - 
+                Key: "Name"
+                Value: !Sub "${ECSService.Name}-rtb-private1-${EC2Instance3.AvailabilityZone}"
+
+    EC2RouteTable2:
+        Type: "AWS::EC2::RouteTable"
+        Properties:
+            VpcId: !Ref EC2VPC
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "Private Subnet AZ1"
+              - 
+                Key: "Network"
+                Value: "Private01"
+
+    EC2RouteTable3:
+        Type: "AWS::EC2::RouteTable"
+        Properties:
+            VpcId: !Ref EC2VPC3
+
+    EC2RouteTable4:
+        Type: "AWS::EC2::RouteTable"
+        Properties:
+            VpcId: !Ref EC2VPC2
+
+    EC2RouteTable5:
+        Type: "AWS::EC2::RouteTable"
+        Properties:
+            VpcId: !Ref EC2VPC
+
+    EC2RouteTable6:
+        Type: "AWS::EC2::RouteTable"
+        Properties:
+            VpcId: !Ref EC2VPC
+            Tags: 
+              - 
+                Key: "Network"
+                Value: "Public"
+              - 
+                Key: "Name"
+                Value: "Public Subnets"
+
+    EC2RouteTable7:
+        Type: "AWS::EC2::RouteTable"
+        Properties:
+            VpcId: !Ref EC2VPC
+            Tags: 
+              - 
+                Key: "Network"
+                Value: "Private02"
+              - 
+                Key: "Name"
+                Value: "Private Subnet AZ2"
+
+    EC2RouteTable8:
+        Type: "AWS::EC2::RouteTable"
+        Properties:
+            VpcId: !Ref EC2VPC2
+
+    EC2RouteTable9:
+        Type: "AWS::EC2::RouteTable"
+        Properties:
+            VpcId: !Ref EC2VPC3
+            Tags: 
+              - 
+                Key: "Name"
+                Value: !Sub "${ECSService.Name}-rtb-public"
+
+    EC2Route:
+        Type: "AWS::EC2::Route"
+        Properties:
+            DestinationCidrBlock: "0.0.0.0/0"
+            GatewayId: !Ref EC2InternetGateway2
+            RouteTableId: !Ref EC2RouteTable
+
+    EC2Route2:
+        Type: "AWS::EC2::Route"
+        Properties:
+            DestinationCidrBlock: "0.0.0.0/0"
+            NatGatewayId: !Ref EC2NatGateway2
+            RouteTableId: !Ref EC2RouteTable2
+
+    EC2Route3:
+        Type: "AWS::EC2::Route"
+        Properties:
+            DestinationCidrBlock: "0.0.0.0/0"
+            NatGatewayId: "nat-052572bf7c173820c"
+            RouteTableId: !Ref EC2RouteTable3
+
+    EC2Route4:
+        Type: "AWS::EC2::Route"
+        Properties:
+            DestinationCidrBlock: "0.0.0.0/0"
+            GatewayId: !Ref EC2InternetGateway3
+            RouteTableId: !Ref EC2RouteTable4
+
+    EC2Route5:
+        Type: "AWS::EC2::Route"
+        Properties:
+            DestinationCidrBlock: "0.0.0.0/0"
+            GatewayId: !Ref EC2InternetGateway
+            RouteTableId: !Ref EC2RouteTable6
+
+    EC2Route6:
+        Type: "AWS::EC2::Route"
+        Properties:
+            DestinationCidrBlock: "0.0.0.0/0"
+            NatGatewayId: !Ref EC2NatGateway
+            RouteTableId: !Ref EC2RouteTable7
+
+    EC2Route7:
+        Type: "AWS::EC2::Route"
+        Properties:
+            GatewayId: "vpce-01cda44bf7775517f"
+            RouteTableId: !Ref EC2RouteTable9
+
+    EC2NatGateway:
+        Type: "AWS::EC2::NatGateway"
+        Properties:
+            SubnetId: !Ref EC2Subnet4
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "eks-vpc-NatGatewayAZ2"
+            AllocationId: !GetAtt EC2EIP.AllocationId
+
+    EC2NatGateway2:
+        Type: "AWS::EC2::NatGateway"
+        Properties:
+            SubnetId: !Ref EC2Subnet
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "eks-vpc-NatGatewayAZ1"
+            AllocationId: !GetAtt EC2EIP2.AllocationId
+
+    EC2VPCEndpoint:
+        Type: "AWS::EC2::VPCEndpoint"
+        Properties:
+            VpcEndpointType: "Gateway"
+            VpcId: !Ref EC2VPC3
+            ServiceName: !Sub "com.amazonaws.${AWS::Region}.s3"
+            PolicyDocument: "{\"Version\":\"2008-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"*\",\"Resource\":\"*\"}]}"
+            RouteTableIds: 
+              - !Ref EC2RouteTable9
+            PrivateDnsEnabled: false
+
+    EC2VPCGatewayAttachment:
+        Type: "AWS::EC2::VPCGatewayAttachment"
+        Properties:
+            InternetGatewayId: !Ref EC2InternetGateway
+            VpcId: !Ref EC2VPC
+
+    EC2VPCGatewayAttachment2:
+        Type: "AWS::EC2::VPCGatewayAttachment"
+        Properties:
+            InternetGatewayId: !Ref EC2InternetGateway2
+            VpcId: !Ref EC2VPC3
+
+    EC2VPCGatewayAttachment3:
+        Type: "AWS::EC2::VPCGatewayAttachment"
+        Properties:
+            InternetGatewayId: !Ref EC2InternetGateway3
+            VpcId: !Ref EC2VPC2
+
+    EC2SubnetRouteTableAssociation:
+        Type: "AWS::EC2::SubnetRouteTableAssociation"
+        Properties:
+            RouteTableId: !Ref EC2RouteTable2
+            SubnetId: !Ref EC2Subnet7
+
+    EC2SubnetRouteTableAssociation2:
+        Type: "AWS::EC2::SubnetRouteTableAssociation"
+        Properties:
+            RouteTableId: !Ref EC2RouteTable4
+            SubnetId: !Ref EC2Subnet3
+
+    EC2SubnetRouteTableAssociation3:
+        Type: "AWS::EC2::SubnetRouteTableAssociation"
+        Properties:
+            RouteTableId: !Ref EC2RouteTable4
+            SubnetId: !Ref EC2Subnet5
+
+    EC2SubnetRouteTableAssociation4:
+        Type: "AWS::EC2::SubnetRouteTableAssociation"
+        Properties:
+            RouteTableId: !Ref EC2RouteTable6
+            SubnetId: !Ref EC2Subnet4
+
+    EC2SubnetRouteTableAssociation5:
+        Type: "AWS::EC2::SubnetRouteTableAssociation"
+        Properties:
+            RouteTableId: !Ref EC2RouteTable6
+            SubnetId: !Ref EC2Subnet
+
+    EC2SubnetRouteTableAssociation6:
+        Type: "AWS::EC2::SubnetRouteTableAssociation"
+        Properties:
+            RouteTableId: !Ref EC2RouteTable7
+            SubnetId: !Ref EC2Subnet6
+
+    EC2SubnetRouteTableAssociation7:
+        Type: "AWS::EC2::SubnetRouteTableAssociation"
+        Properties:
+            RouteTableId: !Ref EC2RouteTable9
+            SubnetId: !Ref EC2Subnet2
+
+    EC2SubnetRouteTableAssociation8:
+        Type: "AWS::EC2::SubnetRouteTableAssociation"
+        Properties:
+            RouteTableId: !Ref EC2RouteTable9
+            SubnetId: !Ref EC2Subnet8
+
+    CodeBuildProject:
+        Type: "AWS::CodeBuild::Project"
+        Properties:
+            Name: "flashcards-cicd"
+            Source: 
+                BuildSpec: "buildspec-eks.yml"
+                InsecureSsl: false
+                Type: "CODEPIPELINE"
+            Artifacts: 
+                EncryptionDisabled: false
+                Name: "flashcards-cicd"
+                Packaging: "NONE"
+                Type: "CODEPIPELINE"
+            Cache: 
+                Type: "NO_CACHE"
+            Environment: 
+                ComputeType: "BUILD_GENERAL1_SMALL"
+                Image: "aws/codebuild/amazonlinux2-x86_64-standard:4.0"
+                ImagePullCredentialsType: "CODEBUILD"
+                PrivilegedMode: true
+                Type: "LINUX_CONTAINER"
+            ServiceRole: !Sub "arn:aws:iam::${AWS::AccountId}:role/service-role/codebuild-flashcards-cicd-service-role"
+            TimeoutInMinutes: 60
+            QueuedTimeoutInMinutes: 480
+            EncryptionKey: !Sub "arn:aws:kms:${AWS::Region}:${AWS::AccountId}:alias/aws/s3"
+            BadgeEnabled: false
+            LogsConfig: 
+                CloudWatchLogs: 
+                    Status: "ENABLED"
+                S3Logs: 
+                    Status: "DISABLED"
+                    EncryptionDisabled: false
+            Visibility: "PRIVATE"
+
+    CodeBuildProject2:
+        Type: "AWS::CodeBuild::Project"
+        Properties:
+            Name: !Sub "${ECSService.Name}-CB-01"
+            Source: 
+                GitCloneDepth: 1
+                GitSubmodulesConfig: 
+                    FetchSubmodules: false
+                InsecureSsl: false
+                Location: !Sub "https://github.com/alvv4240/${ECSService.Name}.git"
+                ReportBuildStatus: false
+                Type: "GITHUB"
+            Artifacts: 
+                EncryptionDisabled: false
+                Location: "artifact-bucket-team1"
+                Name: !Sub "${ECSService.Name}-CB-01"
+                NamespaceType: "NONE"
+                OverrideArtifactName: false
+                Packaging: "NONE"
+                Path: "Build"
+                Type: "S3"
+            Cache: 
+                Type: "NO_CACHE"
+            Environment: 
+                ComputeType: "BUILD_GENERAL1_SMALL"
+                Image: "aws/codebuild/amazonlinux2-x86_64-standard:3.0"
+                ImagePullCredentialsType: "CODEBUILD"
+                PrivilegedMode: true
+                Type: "LINUX_CONTAINER"
+            ServiceRole: !Sub "arn:aws:iam::${AWS::AccountId}:role/service-role/${ECSService.Name}-SerRole"
+            TimeoutInMinutes: 60
+            QueuedTimeoutInMinutes: 480
+            EncryptionKey: !Sub "arn:aws:kms:${AWS::Region}:${AWS::AccountId}:alias/aws/s3"
+            BadgeEnabled: false
+            LogsConfig: 
+                CloudWatchLogs: 
+                    Status: "ENABLED"
+                    GroupName: !GetAtt ECSService.Name
+                    StreamName: !GetAtt ECSService.Name
+                S3Logs: 
+                    Status: "DISABLED"
+                    EncryptionDisabled: false
+            Visibility: "PRIVATE"
+
+    CodeBuildProject3:
+        Type: "AWS::CodeBuild::Project"
+        Properties:
+            Name: !Sub "${ECSService.Name}-CB"
+            Description: !Sub "${ECSService.Name} CodeBuild"
+            Source: 
+                InsecureSsl: false
+                Type: "CODEPIPELINE"
+            Artifacts: 
+                EncryptionDisabled: false
+                Name: !Sub "${ECSService.Name}-CB"
+                Packaging: "NONE"
+                Type: "CODEPIPELINE"
+            Cache: 
+                Type: "NO_CACHE"
+            Environment: 
+                ComputeType: "BUILD_GENERAL1_SMALL"
+                Image: "aws/codebuild/amazonlinux2-x86_64-standard:3.0"
+                ImagePullCredentialsType: "CODEBUILD"
+                PrivilegedMode: true
+                Type: "LINUX_CONTAINER"
+            ServiceRole: !Sub "arn:aws:iam::${AWS::AccountId}:role/service-role/${ECSService.Name}-SerRole"
+            TimeoutInMinutes: 60
+            QueuedTimeoutInMinutes: 480
+            EncryptionKey: !Sub "arn:aws:kms:${AWS::Region}:${AWS::AccountId}:alias/aws/s3"
+            BadgeEnabled: false
+            LogsConfig: 
+                CloudWatchLogs: 
+                    Status: "ENABLED"
+                S3Logs: 
+                    Status: "ENABLED"
+                    Location: "artifact-bucket-team1/Build-Artifacts"
+                    EncryptionDisabled: false
+            Visibility: "PRIVATE"
+
+    CodeBuildProject4:
+        Type: "AWS::CodeBuild::Project"
+        Properties:
+            Name: "flashcards-app"
+            Description: "Flash Cards App"
+            Source: 
+                InsecureSsl: false
+                Location: !Sub "prod-bucket-team1/${ECSService.Name}/"
+                Type: "S3"
+            Artifacts: 
+                Type: "NO_ARTIFACTS"
+            Cache: 
+                Type: "NO_CACHE"
+            Environment: 
+                ComputeType: "BUILD_GENERAL1_SMALL"
+                Image: "aws/codebuild/standard:6.0"
+                ImagePullCredentialsType: "CODEBUILD"
+                PrivilegedMode: true
+                Type: "LINUX_CONTAINER"
+            ServiceRole: !Sub "arn:aws:iam::${AWS::AccountId}:role/service-role/codebuild-flashcard-ap-service-role"
+            TimeoutInMinutes: 60
+            QueuedTimeoutInMinutes: 480
+            EncryptionKey: !Sub "arn:aws:kms:${AWS::Region}:${AWS::AccountId}:alias/aws/s3"
+            BadgeEnabled: false
+            LogsConfig: 
+                CloudWatchLogs: 
+                    Status: "ENABLED"
+                    GroupName: "/aws/codebuild/flashcards"
+                    StreamName: "flashcards"
+                S3Logs: 
+                    Status: "DISABLED"
+                    EncryptionDisabled: false
+            Visibility: "PRIVATE"
+
+    CodeBuildSourceCredential:
+        Type: "AWS::CodeBuild::SourceCredential"
+        Properties:
+            AuthType: "OAUTH"
+            ServerType: "GITHUB"
+            Token: "REPLACEME"
+
+    CodeDeployApplication:
+        Type: "AWS::CodeDeploy::Application"
+        Properties:
+            ApplicationName: !Sub "${ECSService.Name}-CD-App"
+            ComputePlatform: "Server"
+
+    CodeDeployDeploymentGroup:
+        Type: "AWS::CodeDeploy::DeploymentGroup"
+        Properties:
+            ApplicationName: !Sub "${ECSService.Name}-CD-App"
+            DeploymentGroupName: !Sub "${ECSService.Name}-CD-DG"
+            DeploymentConfigName: "CodeDeployDefault.OneAtATime"
+            ServiceRoleArn: !Sub "arn:aws:iam::${AWS::AccountId}:role/${ECSService.Name}-CD-Role"
+            AutoScalingGroups: 
+              - !Ref AutoScalingAutoScalingGroup3
+            AlarmConfiguration: 
+                Enabled: false
+                IgnorePollAlarmFailure: false
+            DeploymentStyle: 
+                DeploymentType: "IN_PLACE"
+                DeploymentOption: "WITH_TRAFFIC_CONTROL"
+            LoadBalancerInfo: 
+                TargetGroupInfoList: 
+                  - 
+                    Name: !GetAtt ElasticLoadBalancingV2TargetGroup.TargetGroupName
+            Ec2TagSet: {}
+            OnPremisesTagSet: {}
+
+    CodePipelinePipeline:
+        Type: "AWS::CodePipeline::Pipeline"
+        Properties:
+            Name: !Sub "${ECSService.Name}-02"
+            RoleArn: !Sub "arn:aws:iam::${AWS::AccountId}:role/service-role/AWSCodePipelineServiceRole-${AWS::Region}-${ECSService.Name}"
+            ArtifactStore: 
+                Location: !Sub "codepipeline-${AWS::Region}-890199704765"
+                Type: "S3"
+            Stages: 
+              - 
+                Name: "Source"
+                Actions: 
+                  - 
+                    Name: "Source"
+                    ActionTypeId: 
+                        Category: "Source"
+                        Owner: "AWS"
+                        Provider: "CodeStarSourceConnection"
+                        Version: "1"
+                    Configuration: 
+                        BranchName: "main"
+                        ConnectionArn: !Sub "arn:aws:codestar-connections:${AWS::Region}:${AWS::AccountId}:connection/e8076d68-d874-4c77-8fba-3dfff7d88a5f"
+                        FullRepositoryId: !Sub "alvv4240/${ECSService.Name}"
+                        OutputArtifactFormat: "CODE_ZIP"
+                    OutputArtifacts: 
+                      - 
+                        Name: "SourceArtifact"
+                    Region: !Ref AWS::Region
+                    Namespace: "SourceVariables"
+                    RunOrder: 1
+              - 
+                Name: "Deploy"
+                Actions: 
+                  - 
+                    Name: "Deploy"
+                    ActionTypeId: 
+                        Category: "Deploy"
+                        Owner: "AWS"
+                        Provider: "S3"
+                        Version: "1"
+                    Configuration: 
+                        BucketName: "prod-bucket-team1"
+                        Extract: "true"
+                        ObjectKey: !GetAtt ECSService.Name
+                    InputArtifacts: 
+                      - 
+                        Name: "SourceArtifact"
+                    Region: !Ref AWS::Region
+                    Namespace: "DeployVariables"
+                    RunOrder: 1
+
+    CodePipelinePipeline2:
+        Type: "AWS::CodePipeline::Pipeline"
+        Properties:
+            Name: !Sub "${ECSService.Name}-03"
+            RoleArn: !Sub "arn:aws:iam::${AWS::AccountId}:role/service-role/AWSCodePipelineServiceRole-${AWS::Region}-${ECSService.Name}-03"
+            ArtifactStore: 
+                Location: "artifact-bucket-team1"
+                Type: "S3"
+            Stages: 
+              - 
+                Name: "Source"
+                Actions: 
+                  - 
+                    Name: "Source"
+                    ActionTypeId: 
+                        Category: "Source"
+                        Owner: "AWS"
+                        Provider: "CodeStarSourceConnection"
+                        Version: "1"
+                    Configuration: 
+                        BranchName: "main"
+                        ConnectionArn: !Sub "arn:aws:codestar-connections:${AWS::Region}:${AWS::AccountId}:connection/e8076d68-d874-4c77-8fba-3dfff7d88a5f"
+                        FullRepositoryId: !Sub "alvv4240/${ECSService.Name}"
+                        OutputArtifactFormat: "CODE_ZIP"
+                    OutputArtifacts: 
+                      - 
+                        Name: "SourceArtifact"
+                    Region: !Ref AWS::Region
+                    Namespace: "SourceVariables"
+                    RunOrder: 1
+              - 
+                Name: "Deploy"
+                Actions: 
+                  - 
+                    Name: "Deploy"
+                    ActionTypeId: 
+                        Category: "Deploy"
+                        Owner: "AWS"
+                        Provider: "S3"
+                        Version: "1"
+                    Configuration: 
+                        BucketName: "prod-bucket-team1"
+                        Extract: "true"
+                        ObjectKey: !GetAtt ECSService.Name
+                    InputArtifacts: 
+                      - 
+                        Name: "SourceArtifact"
+                    Region: !Ref AWS::Region
+                    Namespace: "DeployVariables"
+                    RunOrder: 1
+
+    CodePipelinePipeline3:
+        Type: "AWS::CodePipeline::Pipeline"
+        Properties:
+            Name: "Iac"
+            RoleArn: !Sub "arn:aws:iam::${AWS::AccountId}:role/service-role/IaC"
+            ArtifactStore: 
+                Location: "artifact-bucket-team1"
+                Type: "S3"
+            Stages: 
+              - 
+                Name: "Source"
+                Actions: 
+                  - 
+                    Name: "Source"
+                    ActionTypeId: 
+                        Category: "Source"
+                        Owner: "AWS"
+                        Provider: "CodeStarSourceConnection"
+                        Version: "1"
+                    Configuration: 
+                        BranchName: "main"
+                        ConnectionArn: !Sub "arn:aws:codestar-connections:${AWS::Region}:${AWS::AccountId}:connection/5dc4bebd-cbd2-42f4-b447-7aabcb658f47"
+                        FullRepositoryId: "alvv4240/project_IaC"
+                        OutputArtifactFormat: "CODE_ZIP"
+                    OutputArtifacts: 
+                      - 
+                        Name: "SourceArtifact"
+                    Region: !Ref AWS::Region
+                    Namespace: "SourceVariables"
+                    RunOrder: 1
+              - 
+                Name: "Deploy"
+                Actions: 
+                  - 
+                    Name: "Deploy"
+                    ActionTypeId: 
+                        Category: "Deploy"
+                        Owner: "AWS"
+                        Provider: "S3"
+                        Version: "1"
+                    Configuration: 
+                        BucketName: "prod-bucket-team1"
+                        Extract: "true"
+                        ObjectKey: "IaC"
+                    InputArtifacts: 
+                      - 
+                        Name: "SourceArtifact"
+                    Region: !Ref AWS::Region
+                    Namespace: "DeployVariables"
+                    RunOrder: 1
+
+    CodePipelinePipeline4:
+        Type: "AWS::CodePipeline::Pipeline"
+        Properties:
+            Name: !Sub "${ECSService.Name}-deployment"
+            RoleArn: !Sub "arn:aws:iam::${AWS::AccountId}:role/service-role/AWSCodePipelineServiceRole-${AWS::Region}-${ECSService.Name}-deployment"
+            ArtifactStore: 
+                Location: !Sub "codepipeline-${AWS::Region}-890199704765"
+                Type: "S3"
+            Stages: 
+              - 
+                Name: "Source"
+                Actions: 
+                  - 
+                    Name: "Source"
+                    ActionTypeId: 
+                        Category: "Source"
+                        Owner: "AWS"
+                        Provider: "CodeStarSourceConnection"
+                        Version: "1"
+                    Configuration: 
+                        BranchName: "main"
+                        ConnectionArn: !Sub "arn:aws:codestar-connections:${AWS::Region}:${AWS::AccountId}:connection/e8076d68-d874-4c77-8fba-3dfff7d88a5f"
+                        FullRepositoryId: !Sub "alvv4240/${ECSService.Name}"
+                        OutputArtifactFormat: "CODE_ZIP"
+                    OutputArtifacts: 
+                      - 
+                        Name: "SourceArtifact"
+                    Region: !Ref AWS::Region
+                    Namespace: "SourceVariables"
+                    RunOrder: 1
+              - 
+                Name: "Deploy"
+                Actions: 
+                  - 
+                    Name: "Deploy"
+                    ActionTypeId: 
+                        Category: "Deploy"
+                        Owner: "AWS"
+                        Provider: "S3"
+                        Version: "1"
+                    Configuration: 
+                        BucketName: "codezipfilebucket"
+                        Extract: "false"
+                        ObjectKey: !GetAtt ECSService.Name
+                    InputArtifacts: 
+                      - 
+                        Name: "SourceArtifact"
+                    Region: !Ref AWS::Region
+                    Namespace: "DeployVariables"
+                    RunOrder: 1
+
+    CodeStarNotificationsNotificationRule:
+        Type: "AWS::CodeStarNotifications::NotificationRule"
+        Properties:
+            DetailType: "FULL"
+            EventTypeIds: 
+              - "codepipeline-pipeline-pipeline-execution-succeeded"
+            Name: "build-push-ecr"
+            Resource: !Sub "arn:aws:codepipeline:${AWS::Region}:${AWS::AccountId}:${ECSService.Name}-deployment"
+            Status: "ENABLED"
+            Targets: 
+              - 
+                TargetAddress: !Sub "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:codestar-notifications-ECR"
+                TargetType: "SNS"
+            Tags: {}
+
+    CodeStarNotificationsNotificationRule2:
+        Type: "AWS::CodeStarNotifications::NotificationRule"
+        Properties:
+            DetailType: "FULL"
+            EventTypeIds: 
+              - "codepipeline-pipeline-pipeline-execution-succeeded"
+            Name: !Sub "${ECSService.Name}-EKS-Notification"
+            Resource: !Sub "arn:aws:codepipeline:${AWS::Region}:${AWS::AccountId}:${ECSService.Name}-EKS"
+            Status: "ENABLED"
+            Targets: 
+              - 
+                TargetAddress: !Sub "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:codestar-notifications-EKS"
+                TargetType: "SNS"
+            Tags: {}
+
+    CodeStarNotificationsNotificationRule3:
+        Type: "AWS::CodeStarNotifications::NotificationRule"
+        Properties:
+            DetailType: "FULL"
+            EventTypeIds: 
+              - "codepipeline-pipeline-pipeline-execution-succeeded"
+            Name: !Sub "${ECSService.Name}-CodeDropped"
+            Resource: !Sub "arn:aws:codepipeline:${AWS::Region}:${AWS::AccountId}:${ECSService.Name}-03"
+            Status: "ENABLED"
+            Targets: 
+              - 
+                TargetAddress: !Sub "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:codestar-notifications-${ECSService.Name}"
+                TargetType: "SNS"
+            Tags: {}
+
