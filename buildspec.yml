@@ -1,7 +1,7 @@
 version: 0.2
 
 phases:
-  pre_build:
+  install:
     commands:
       - echo Installing app dependencies...
       - curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.9/2020-11-02/bin/linux/amd64/kubectl   
@@ -13,6 +13,8 @@ phases:
       - kubectl version --short --client
       - chmod +x eks_cicd/prereqs.sh
       - sh eks_cicd/prereqs.sh
+  pre_build:
+    commands:
       - echo Logging in to Amazon ECR...
       - aws --version
       - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 948731545609.dkr.ecr.us-west-2.amazonaws.com
