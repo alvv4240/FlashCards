@@ -1,6 +1,8 @@
 version: 0.2
+run-as: root
 
 phases:
+
   install:
     commands:
       - echo Installing app dependencies...
@@ -13,23 +15,33 @@ phases:
       - kubectl version --short --client
       - chmod +x eks_cicd/prereqs.sh
       - sh eks_cicd/prereqs.sh
+
   pre_build:
     commands:
+      - echo Logging in to Amazon EKS...
+      - aws eks --region us-west-2 update-kubeconfig --name eks-cluster
+      - echo check config 
+      - kubectl config view --minify
       - echo Logging in to Amazon ECR...
       - aws --version
       - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 948731545609.dkr.ecr.us-west-2.amazonaws.com
+      - REPOSITORY_URI=948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards
+      - docker pull $REPOSITORY_URI:latest
+      
+
   build:
     commands:
       - echo Build started on `date`
-      - echo Building the Docker image...
-      - docker build -t flashcards .
-      - docker tag flashcards:latest 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest
+      - echo Building the Docker image...          
+      - docker build --cache-from $REPOSITORY_URI:latest -t flashcards:latest .
+      - docker tag flashcards:latest 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest 
+      - echo tagging image
+      - echo build succeeded
   post_build:
     commands:
       - echo Build completed on `date`
-      - echo Pushing the Docker images...
+      - echo Pushing the Docker image...
       - docker push 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest
-      - echo Writing image definitions file...
-      - printf '[{"name":"flashcards","948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards":"%s"}]' 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest > imagedefinitions.json
-artifacts:
-    files: imagedefinitions.json
+      - echo Push the latest image to cluster
+      - kubectl apply -f ./eks_cicd/deployment.yml
+      - kubectl rollout restart -f ./eks_cicd/deployment.yml
