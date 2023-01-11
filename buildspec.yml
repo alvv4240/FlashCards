@@ -1,6 +1,9 @@
 version: 0.2
 run-as: root
 phases:
+  install:
+    commands:
+      - echo install phase..
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
