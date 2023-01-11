@@ -15,7 +15,7 @@ install:
       - chmod +x eks_cicd/prereqs.sh
       - sh eks_cicd/prereqs.sh
       
-  pre_build:
+pre_build:
     commands:
       - echo Logging in to Amazon EKS...
       - aws eks --region us-west-2 update-kubeconfig --name eks-cluster
@@ -36,7 +36,7 @@ install:
       - printf '[{"name":"flashcards","948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards":"%s"}]' 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest > imagedefinitions.json
   
   
-  build:
+build:
  
     commands:
       - echo Build started on `date`
@@ -49,7 +49,7 @@ install:
   
   
   
-  post_build:
+post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
