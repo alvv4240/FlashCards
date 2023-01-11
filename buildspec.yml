@@ -14,7 +14,6 @@ install:
       - kubectl version --short --client
       - chmod +x eks_cicd/prereqs.sh
       - sh eks_cicd/prereqs.sh
-      
 pre_build:
     commands:
       - echo Logging in to Amazon EKS...
@@ -34,10 +33,7 @@ pre_build:
       - docker push 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest
       - echo Writing image definitions file...
       - printf '[{"name":"flashcards","948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards":"%s"}]' 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest > imagedefinitions.json
-  
-  
-build:
- 
+build: 
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
@@ -45,10 +41,6 @@ build:
       - docker tag flashcards:latest 948731545609.dkr.ecr.us-west-2.amazonaws.com/flashcards:latest 
       - echo tagging image
       - echo build succeeded
-      
-  
-  
-  
 post_build:
     commands:
       - echo Build completed on `date`
